@@ -1,0 +1,43 @@
+package calc.evaluate.parser.expression;
+
+public class ArithmeticExpression extends Expression  {
+    String operation;
+    Expression e1;
+    Expression e2;
+
+    public ArithmeticExpression(String operation, Expression e1, Expression e2) {
+        this.operation = operation;
+        this.e1 = e1;
+        this.e2 = e2;
+    }
+
+    @Override
+    void eval() {
+        if(e1.getErrorCode() > 0) {
+            errorCode = e1.getErrorCode();
+            return;
+        }
+        if(e2.getErrorCode() > 0) {
+            errorCode = e2.getErrorCode();
+            return;
+        }
+        switch(operation) {
+            case "+":
+                val = e1.getValue() + e2.getValue();
+                break;
+            case "-":
+                val = e1.getValue() - e2.getValue();
+                break;
+            case "*":
+                val = e1.getValue() * e2.getValue();
+                break;
+            case "/":
+                if(e2.getValue() == 0d){
+                    errorCode = 1;
+                    break;
+                }
+                val = e1.getValue() / e2.getValue();
+                break;
+        }
+    }
+}

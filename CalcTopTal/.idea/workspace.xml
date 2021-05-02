@@ -2,21 +2,217 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b4b4688-ca60-4ad2-b6c4-c6b2512724a1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calc/evaluate/parser/expression/Expression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CalcTopTal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CalcTopTal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Calc/Calc.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/calc/Calc.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Calc/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calc/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Calc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calc/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.315" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="calc.evaluate.parser" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="calc.evaluate" />
+      <recent name="calc.evaluate.parser" />
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="calc.evaluate" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.SymbolParserTest">
+    <configuration name="SymbolParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalcTopTal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="calc.evaluate" />
+      <option name="MAIN_CLASS_NAME" value="calc.evaluate.SymbolParserTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SymbolParserTest.parse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalcTopTal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="calc.evaluate" />
+      <option name="MAIN_CLASS_NAME" value="calc.evaluate.SymbolParserTest" />
+      <option name="METHOD_NAME" value="parse" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SymbolParserTest.parseArithmeticOperations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalcTopTal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="calc.evaluate" />
+      <option name="MAIN_CLASS_NAME" value="calc.evaluate.SymbolParserTest" />
+      <option name="METHOD_NAME" value="parseArithmeticOperations" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SymbolParserTest.parseEmptyString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalcTopTal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="calc.evaluate" />
+      <option name="MAIN_CLASS_NAME" value="calc.evaluate.SymbolParserTest" />
+      <option name="METHOD_NAME" value="parseEmptyString" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SymbolParserTest.parseNumericValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalcTopTal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="calc.evaluate" />
+      <option name="MAIN_CLASS_NAME" value="calc.evaluate.SymbolParserTest" />
+      <option name="METHOD_NAME" value="parseNumericValue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SymbolParserTest" />
+        <item itemvalue="JUnit.SymbolParserTest.parseNumericValue" />
+        <item itemvalue="JUnit.SymbolParserTest.parse" />
+        <item itemvalue="JUnit.SymbolParserTest.parseArithmeticOperations" />
+        <item itemvalue="JUnit.SymbolParserTest.parseEmptyString" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="889" y="-905" key="#Project_Structure" timestamp="1619975961958">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state x="889" y="-905" key="#Project_Structure/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619975961958" />
+    <state x="1094" y="-762" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1619966580300">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state x="1094" y="-762" key="#com.intellij.fileTypes.FileTypeChooser/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619966580299" />
+    <state x="1174" y="-806" key="#com.intellij.ide.util.MemberChooser" timestamp="1619972156198">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state x="1174" y="-806" key="#com.intellij.ide.util.MemberChooser/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619972156198" />
+    <state x="1099" y="-800" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1619975850084">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state x="1099" y="-800" key="#com.intellij.ide.util.PackageChooserDialog/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619975850084" />
+    <state x="1133" y="-706" width="506" height="319" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1619976096589">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state x="1133" y="-706" width="506" height="319" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619976096589" />
+    <state width="1878" height="298" key="GridCell.Tab.0.bottom" timestamp="1619976178613">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state width="1878" height="298" key="GridCell.Tab.0.bottom/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619976178613" />
+    <state width="1878" height="298" key="GridCell.Tab.0.center" timestamp="1619976178611">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state width="1878" height="298" key="GridCell.Tab.0.center/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619976178611" />
+    <state width="1878" height="298" key="GridCell.Tab.0.left" timestamp="1619976178610">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state width="1878" height="298" key="GridCell.Tab.0.left/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619976178610" />
+    <state width="1878" height="298" key="GridCell.Tab.0.right" timestamp="1619976178611">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state width="1878" height="298" key="GridCell.Tab.0.right/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619976178611" />
+    <state x="849" y="-989" key="SettingsEditor" timestamp="1619975904433">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state x="849" y="-989" key="SettingsEditor/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619975904433" />
+    <state x="1069" y="-668" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1619972785054">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state x="1069" y="-668" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619972785054" />
+    <state x="1140" y="-835" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1619975851247">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state x="1140" y="-835" key="com.intellij.testIntegration.createTest.CreateTestDialog/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619975851247" />
+    <state x="1024" y="-805" width="673" height="472" key="find.popup" timestamp="1619973380492">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state x="1024" y="-805" width="673" height="472" key="find.popup/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619973380492" />
+    <state x="748" y="-966" key="new project wizard" timestamp="1619975808409">
+      <screen x="401" y="-1055" width="1920" height="1055" />
+    </state>
+    <state x="748" y="-966" key="new project wizard/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1619975808409" />
   </component>
 </project>
