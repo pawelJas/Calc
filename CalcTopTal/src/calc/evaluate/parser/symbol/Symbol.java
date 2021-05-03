@@ -17,7 +17,23 @@ public class Symbol {
         return type == SymbolType.NUMBER;
     }
 
-    public boolean isArithmetic () {
+    public boolean isArithmetic() {
         return type == SymbolType.ARITHMETIC;
+    }
+
+    public boolean isVariable() {
+        return type == SymbolType.VARIABLE;
+    }
+
+    public boolean isConst() {
+        return type == SymbolType.CONST;
+    }
+
+    public boolean isTrig() {
+        return type == SymbolType.TRIG;
+    }
+
+    public boolean isLog() {
+        return type == SymbolType.LOG;
     }
 }
