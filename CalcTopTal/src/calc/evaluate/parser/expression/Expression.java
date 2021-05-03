@@ -17,6 +17,7 @@ public abstract class Expression {
 
     @Override
     public String toString() {
+        evalOnce();
         return Double.toString(val);
     }
 
