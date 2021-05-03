@@ -87,6 +87,7 @@ public class RpnParser {
             return false;
         }
         if (!expressions.isEmpty()) {
+            System.out.println(expressions);
             error = "Too many symbols given";
             return false;
         }

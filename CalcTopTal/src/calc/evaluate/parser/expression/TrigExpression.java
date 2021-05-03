@@ -11,5 +11,24 @@ public class TrigExpression extends Expression   {
 
     @Override
     void eval() {
+        System.out.println("Trigonometric evaluation of " + operation);
+        if((errorCode = param.getErrorCode()) != ExpressionError.NO_ERROR) {
+            return;
+        }
+        double radians = param.getValue();
+        switch(operation) {
+            case "sin":
+                val = Math.sin(radians);
+                break;
+            case "cos":
+                val = Math.cos(radians);
+                break;
+            case "tan":
+                val = Math.tan(radians);
+                break;
+            case "ctan":
+                val = 1.0 / Math.tan(radians);
+                break;
+        }
     }
 }

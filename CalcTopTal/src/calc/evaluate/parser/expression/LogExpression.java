@@ -11,5 +11,6 @@ public class LogExpression extends Expression   {
 
     @Override
     void eval() {
+        System.out.println("Logarithms evaluation of " + operation);
     }
 }

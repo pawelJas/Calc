@@ -98,4 +98,19 @@ public class RpnParserTest {
         Assert.assertTrue(rpnParser.getRootExpression() instanceof ArithmeticExpression);
         Assert.assertEquals(-180d, rpnParser.getRootExpression().getValue(), EPSILON);
     }
+
+    @Test
+    public void parseNestedTrig() {
+        symbols.add(new Symbol(SymbolType.NUMBER, "3"));
+        symbols.add(new Symbol(SymbolType.NUMBER, "Pi"));
+        symbols.add(new Symbol(SymbolType.ARITHMETIC, "*"));
+        symbols.add(new Symbol(SymbolType.NUMBER, "4"));
+        symbols.add(new Symbol(SymbolType.ARITHMETIC, "/"));
+        symbols.add(new Symbol(SymbolType.TRIG, "ctan"));
+        symbols.add(new Symbol(SymbolType.NUMBER, "5"));
+        symbols.add(new Symbol(SymbolType.ARITHMETIC, "*"));
+        Assert.assertTrue(rpnParser.parse());
+        Assert.assertTrue(rpnParser.getRootExpression() instanceof ArithmeticExpression);
+        Assert.assertEquals(-5d, rpnParser.getRootExpression().getValue(), EPSILON);
+    }
 }
