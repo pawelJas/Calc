@@ -13,11 +13,11 @@ public class ArithmeticExpression extends Expression  {
 
     @Override
     void eval() {
-        if(e1.getErrorCode() > 0) {
+        if(e1.getErrorCode() != ExpressionError.NO_ERROR) {
             errorCode = e1.getErrorCode();
             return;
         }
-        if(e2.getErrorCode() > 0) {
+        if(e2.getErrorCode() != ExpressionError.NO_ERROR) {
             errorCode = e2.getErrorCode();
             return;
         }
@@ -33,7 +33,7 @@ public class ArithmeticExpression extends Expression  {
                 break;
             case "/":
                 if(e2.getValue() == 0d){
-                    errorCode = 1;
+                    errorCode = ExpressionError.DIVIDE_BY_ZERO;
                     break;
                 }
                 val = e1.getValue() / e2.getValue();

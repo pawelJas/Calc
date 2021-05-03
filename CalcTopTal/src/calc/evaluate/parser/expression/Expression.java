@@ -3,13 +3,12 @@ package calc.evaluate.parser.expression;
 public abstract class Expression {
     double val;
     boolean wasEvaluated = false;
+    ExpressionError errorCode = ExpressionError.NO_ERROR;
 
-    public int getErrorCode() {
+    public ExpressionError getErrorCode() {
         evalOnce();
         return errorCode;
     }
-
-    int errorCode = 0;
 
     public double getValue() {
         evalOnce();
