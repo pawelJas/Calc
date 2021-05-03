@@ -4,9 +4,9 @@
     <list default="true" id="4b4b4688-ca60-4ad2-b6c4-c6b2512724a1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/calc/evaluate/parser/RpnParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calc/evaluate/parser/RpnParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/calc/evaluate/parser/expression/ArithmeticExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calc/evaluate/parser/expression/ArithmeticExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/calc/evaluate/SymbolParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/calc/evaluate/parser/SymbolParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/calc/evaluate/parser/expression/ArithmeticExpressionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/calc/evaluate/parser/expression/ArithmeticExpressionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/calc/evaluate/parser/SymbolParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calc/evaluate/parser/SymbolParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/calc/evaluate/parser/RpnParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/calc/evaluate/parser/RpnParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/calc/evaluate/parser/SymbolParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/calc/evaluate/parser/SymbolParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +60,7 @@
       <recent name="calc.evaluate" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in CalcTopTal">
+  <component name="RunManager" selected="JUnit.RpnParserTest">
     <configuration name="All in CalcTopTal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CalcTopTal" />
       <option name="PACKAGE_NAME" value="" />
@@ -100,23 +100,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArithmeticExpressionTest.evalDivBy0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CalcTopTal" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="calc.evaluate.parser.expression.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="calc.evaluate.parser.expression" />
-      <option name="MAIN_CLASS_NAME" value="calc.evaluate.parser.expression.ArithmeticExpressionTest" />
-      <option name="METHOD_NAME" value="evalDivBy0" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SymbolParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RpnParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CalcTopTal" />
       <extension name="coverage">
         <pattern>
@@ -125,19 +109,35 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="calc.evaluate.parser" />
-      <option name="MAIN_CLASS_NAME" value="calc.evaluate.parser.SymbolParserTest" />
+      <option name="MAIN_CLASS_NAME" value="calc.evaluate.parser.RpnParserTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RpnParserTest.parse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalcTopTal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="calc.evaluate.parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="calc.evaluate.parser" />
+      <option name="MAIN_CLASS_NAME" value="calc.evaluate.parser.RpnParserTest" />
+      <option name="METHOD_NAME" value="parse" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RpnParserTest" />
+        <item itemvalue="JUnit.RpnParserTest.parse" />
         <item itemvalue="JUnit.All in CalcTopTal" />
         <item itemvalue="JUnit.ArithmeticExpressionTest" />
         <item itemvalue="JUnit.ArithmeticExpressionTest.evalCacheErrorResults" />
-        <item itemvalue="JUnit.SymbolParserTest" />
-        <item itemvalue="JUnit.ArithmeticExpressionTest.evalDivBy0" />
       </list>
     </recent_temporary>
   </component>
@@ -172,22 +172,22 @@
       <screen x="401" y="-1055" width="1920" height="1055" />
     </state>
     <state x="1133" y="-706" width="506" height="319" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620046876924" />
-    <state width="1878" height="249" key="GridCell.Tab.0.bottom" timestamp="1620047472760">
+    <state width="1878" height="249" key="GridCell.Tab.0.bottom" timestamp="1620049639477">
       <screen x="401" y="-1055" width="1920" height="1055" />
     </state>
-    <state width="1878" height="249" key="GridCell.Tab.0.bottom/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620047472760" />
-    <state width="1878" height="249" key="GridCell.Tab.0.center" timestamp="1620047472759">
+    <state width="1878" height="249" key="GridCell.Tab.0.bottom/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620049639477" />
+    <state width="1878" height="249" key="GridCell.Tab.0.center" timestamp="1620049639476">
       <screen x="401" y="-1055" width="1920" height="1055" />
     </state>
-    <state width="1878" height="249" key="GridCell.Tab.0.center/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620047472759" />
-    <state width="1878" height="249" key="GridCell.Tab.0.left" timestamp="1620047472759">
+    <state width="1878" height="249" key="GridCell.Tab.0.center/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620049639476" />
+    <state width="1878" height="249" key="GridCell.Tab.0.left" timestamp="1620049639476">
       <screen x="401" y="-1055" width="1920" height="1055" />
     </state>
-    <state width="1878" height="249" key="GridCell.Tab.0.left/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620047472759" />
-    <state width="1878" height="249" key="GridCell.Tab.0.right" timestamp="1620047472760">
+    <state width="1878" height="249" key="GridCell.Tab.0.left/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620049639476" />
+    <state width="1878" height="249" key="GridCell.Tab.0.right" timestamp="1620049639477">
       <screen x="401" y="-1055" width="1920" height="1055" />
     </state>
-    <state width="1878" height="249" key="GridCell.Tab.0.right/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620047472760" />
+    <state width="1878" height="249" key="GridCell.Tab.0.right/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620049639477" />
     <state x="849" y="-989" key="SettingsEditor" timestamp="1620044527373">
       <screen x="401" y="-1055" width="1920" height="1055" />
     </state>

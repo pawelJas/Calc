@@ -19,7 +19,7 @@ public class SymbolParser {
 
     public SymbolParser(String input) {
         this.input = input.strip();
-        symbols = new ArrayList<Symbol>();
+        symbols = new ArrayList<>();
     }
 
     public ArrayList<Symbol> getSymbols() {
@@ -31,6 +31,7 @@ public class SymbolParser {
     }
 
     public boolean parse() {
+        System.out.println("Symbol parsing started");
         CharacterIterator it = new StringCharacterIterator(input);
         int errorStatus = 0;
         while(it.current() != CharacterIterator.DONE && errorStatus == 0) {

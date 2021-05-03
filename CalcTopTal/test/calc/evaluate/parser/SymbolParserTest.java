@@ -5,9 +5,6 @@ import calc.evaluate.parser.symbol.Symbol;
 import org.junit.Assert;
 import java.util.ArrayList;
 
-
-import static org.junit.Assert.*;
-
 public class SymbolParserTest {
     SymbolParser symbolParser;
 

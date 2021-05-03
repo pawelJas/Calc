@@ -10,21 +10,26 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class RpnParser {
+    String input;
     Expression rootExpression = null;
     SymbolParser symbolParser;
     String error;
 
     public RpnParser(String input) {
-        symbolParser = new SymbolParser(input);
+        this.input = input;
     }
 
     public boolean parse() {
+        System.out.println("Rpn parsing started");
+        symbolParser = createSymbolParser();
         if(!symbolParser.parse()) {
             error = "Parsing Error: " + symbolParser.getError();
+            System.out.println("Symbol parsing failed with error: " + symbolParser.getError());
             return false;
         }
 
         if(!buildExpression()) {
+            System.out.println("Expression building failed with error " + error);
             error = "Parsing Error: " + error;
             return false;
         }
@@ -64,5 +69,9 @@ public class RpnParser {
             return false;
         }
         return true;
+    }
+
+    SymbolParser createSymbolParser() {
+        return new SymbolParser(input);
     }
 }
