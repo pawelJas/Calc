@@ -54,10 +54,19 @@ public class SymbolParser {
     }
 
     int getNumericSymbol(CharacterIterator it) {
+        int dots = 0;
         StringBuilder numberAsString = new StringBuilder(Character.toString(it.current()));
         it.next();
         while(it.current() != CharacterIterator.DONE &&
                 (Character.isDigit(it.current()) || it.current() == '.')) {
+            if (it.current() == '.') {
+                dots++;
+                if(dots>1) {
+                    error = "Invalid number";
+                    return 1;
+                }
+            }
+
             numberAsString.append(it.current());
             it.next();
         }

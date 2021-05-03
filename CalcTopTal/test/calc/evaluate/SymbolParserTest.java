@@ -60,4 +60,10 @@ public class SymbolParserTest {
         }
     }
 
+    @org.junit.Test
+    public void parseNumberError() {
+        symbolParser = new SymbolParser("0.33.0");
+        Assert.assertFalse(symbolParser.parse());
+        Assert.assertEquals("Invalid number", symbolParser.getError());
+    }
 }
