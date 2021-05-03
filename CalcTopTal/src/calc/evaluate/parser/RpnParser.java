@@ -1,8 +1,6 @@
 package calc.evaluate.parser;
 
-import calc.evaluate.parser.expression.ArithmeticExpression;
-import calc.evaluate.parser.expression.Expression;
-import calc.evaluate.parser.expression.NumericExpression;
+import calc.evaluate.parser.expression.*;
 import calc.evaluate.parser.symbol.Symbol;
 
 import java.util.*;
@@ -52,18 +50,35 @@ public class RpnParser {
         Stack<Expression> expressions = new Stack<>();
         while(it.hasNext()) {
             currentSymbol = it.next();
-            if (currentSymbol.isNumeric()) {
+            if (currentSymbol.isNumeric() || currentSymbol.isConst()) {
                 expressions.push(new NumericExpression(currentSymbol.getVal()));
             }
             else if (currentSymbol.isArithmetic()){
                 try {
-                    Expression e1 = expressions.pop();
-                    Expression e2 = expressions.pop();
-                    expressions.push(new ArithmeticExpression(currentSymbol.getVal(), e2, e1));
+                    Expression param1 = expressions.pop();
+                    Expression param2 = expressions.pop();
+                    expressions.push(new ArithmeticExpression(currentSymbol.getVal(), param2, param1));
                 } catch(EmptyStackException e) {
                     error = "Not enough parameters for arithmetic operation";
                     return false;
-                } }
+                }
+            }
+            else if (currentSymbol.isTrig() || currentSymbol.isLog()) {
+                try {
+                    Expression param = expressions.pop();
+                    if (currentSymbol.isTrig()) {
+                        expressions.push(new TrigExpression(currentSymbol.getVal(), param));
+                    } else {
+                        expressions.push(new LogExpression(currentSymbol.getVal(), param));
+                    }
+                } catch(EmptyStackException e) {
+                    error = "Not enough parameters for arithmetic operation";
+                    return false;
+                }
+            }
+//            else if (currentSymbol.isVariable()) {
+//
+//            }
         }
         try {
             rootExpression = expressions.pop();

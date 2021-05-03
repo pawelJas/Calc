@@ -76,7 +76,7 @@ public class SymbolParserTest {
     }
 
     @org.junit.Test
-    public void parseTryg() {
+    public void parseTrig() {
         symbolParser = new SymbolParser("sin cos tan ctan ctan");
         String[] expected = {"sin", "cos", "tan", "ctan", "ctan"};
         Assert.assertTrue(symbolParser.parse());

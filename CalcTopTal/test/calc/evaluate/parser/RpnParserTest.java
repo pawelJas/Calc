@@ -75,12 +75,12 @@ public class RpnParserTest {
 
     @Test
     public void parseSimpleArithmetic() {
-        symbols.add(new Symbol(SymbolType.NUMBER, "22"));
-        symbols.add(new Symbol(SymbolType.NUMBER, "12.5"));
+        symbols.add(new Symbol(SymbolType.NUMBER, "e"));
+        symbols.add(new Symbol(SymbolType.NUMBER, "Pi"));
         symbols.add(new Symbol(SymbolType.ARITHMETIC, "+"));
         Assert.assertTrue(rpnParser.parse());
         Assert.assertTrue(rpnParser.getRootExpression() instanceof ArithmeticExpression);
-        Assert.assertEquals(22d + 12.5, rpnParser.getRootExpression().getValue(), EPSILON);
+        Assert.assertEquals(Math.E + Math.PI, rpnParser.getRootExpression().getValue(), EPSILON);
     }
 
     @Test
