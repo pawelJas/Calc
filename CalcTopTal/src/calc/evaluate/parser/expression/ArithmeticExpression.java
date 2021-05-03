@@ -32,7 +32,7 @@ public class ArithmeticExpression extends Expression  {
                 break;
             case "/":
                 if(e2.getValue() == 0d){
-                    errorCode = ExpressionError.DIVIDE_BY_ZERO;
+                    errorCode = ExpressionError.DIVISION_BY_ZERO;
                     break;
                 }
                 val = e1.getValue() / e2.getValue();

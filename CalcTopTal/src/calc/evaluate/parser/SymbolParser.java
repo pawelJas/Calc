@@ -139,7 +139,6 @@ public class SymbolParser {
         if (symbol == null) {
             return null;
         }
-        System.out.println("symbol " + symbol);
         if(variable.contains(symbol)) {
             return new Symbol(SymbolType.VARIABLE, symbol);
         }

@@ -35,9 +35,9 @@ public class ArithmeticExpressionTest {
         when(e2.getErrorCode()).thenReturn(ExpressionError.UNKNOWN_ERROR);
         arithmeticExpression = new ArithmeticExpression("+", e1, e2);
         Assert.assertEquals(ExpressionError.UNKNOWN_ERROR, arithmeticExpression.getErrorCode());
-        when(e1.getErrorCode()).thenReturn(ExpressionError.DIVIDE_BY_ZERO);
+        when(e1.getErrorCode()).thenReturn(ExpressionError.DIVISION_BY_ZERO);
         arithmeticExpression = new ArithmeticExpression("+", e1, e2);
-        Assert.assertEquals(ExpressionError.DIVIDE_BY_ZERO, arithmeticExpression.getErrorCode());
+        Assert.assertEquals(ExpressionError.DIVISION_BY_ZERO, arithmeticExpression.getErrorCode());
     }
 
     @Test
@@ -76,6 +76,6 @@ public class ArithmeticExpressionTest {
     public void evalDivBy0() {
         when(e2.getValue()).thenReturn(0d);
         arithmeticExpression = new ArithmeticExpression("/", e1, e2);
-        Assert.assertEquals(ExpressionError.DIVIDE_BY_ZERO, arithmeticExpression.getErrorCode());
+        Assert.assertEquals(ExpressionError.DIVISION_BY_ZERO, arithmeticExpression.getErrorCode());
     }
 }

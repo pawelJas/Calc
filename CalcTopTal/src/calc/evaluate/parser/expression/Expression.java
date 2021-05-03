@@ -18,7 +18,12 @@ public abstract class Expression {
     @Override
     public String toString() {
         evalOnce();
-        return Double.toString(val);
+        if(errorCode == ExpressionError.NO_ERROR) {
+            return Double.toString(val);
+        }
+        else {
+            return "Expression evaluation error: "+ errorCode.toString();
+        }
     }
 
     abstract void eval();

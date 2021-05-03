@@ -20,12 +20,12 @@ public class RpnParser {
         symbolParser = createSymbolParser();
         if(!symbolParser.parse()) {
             error = "Parsing Error: " + symbolParser.getError();
-            System.out.println("Symbol parsing failed with error: " + symbolParser.getError());
+            System.out.println("Rpn Error: Symbol parsing failed with error: " + symbolParser.getError());
             return false;
         }
 
         if(!buildExpression()) {
-            System.out.println("Expression building failed with error: " + error);
+            System.out.println("Rpn Error: Expression building failed with error: " + error);
             error = "Expression building Error: " + error;
             return false;
         }
@@ -87,7 +87,6 @@ public class RpnParser {
             return false;
         }
         if (!expressions.isEmpty()) {
-            System.out.println(expressions);
             error = "Too many symbols given";
             return false;
         }
