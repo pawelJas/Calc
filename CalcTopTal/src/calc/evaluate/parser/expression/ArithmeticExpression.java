@@ -13,6 +13,7 @@ public class ArithmeticExpression extends Expression  {
 
     @Override
     void eval() {
+        System.out.println("Arithmetic evaluation of " + operation);
         if((errorCode = e1.getErrorCode()) != ExpressionError.NO_ERROR) {
             return;
         }

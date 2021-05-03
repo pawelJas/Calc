@@ -5,9 +5,7 @@ import calc.evaluate.parser.expression.Expression;
 import calc.evaluate.parser.expression.NumericExpression;
 import calc.evaluate.parser.symbol.Symbol;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class RpnParser {
     String input;
@@ -29,8 +27,8 @@ public class RpnParser {
         }
 
         if(!buildExpression()) {
-            System.out.println("Expression building failed with error " + error);
-            error = "Parsing Error: " + error;
+            System.out.println("Expression building failed with error: " + error);
+            error = "Expression building Error: " + error;
             return false;
         }
         return true;
@@ -46,24 +44,33 @@ public class RpnParser {
 
     boolean buildExpression() {
         if(symbolParser.getSymbols().isEmpty()) {
-            error = "Empty Expression";
+            error = "Empty expression list";
             return false;
         }
         Iterator<Symbol> it = symbolParser.getSymbols().iterator();
         Symbol currentSymbol;
-        Queue<Expression> expressions = new LinkedList<Expression>();
+        Stack<Expression> expressions = new Stack<>();
         while(it.hasNext()) {
             currentSymbol = it.next();
             if (currentSymbol.isNumeric()) {
-                expressions.add(new NumericExpression(currentSymbol.getVal()));
+                expressions.push(new NumericExpression(currentSymbol.getVal()));
             }
             else if (currentSymbol.isArithmetic()){
-                Expression e1 = expressions.poll();
-                Expression e2 = expressions.poll();
-                expressions.add(new ArithmeticExpression(currentSymbol.getVal(), e1, e2));
-            }
+                try {
+                    Expression e1 = expressions.pop();
+                    Expression e2 = expressions.pop();
+                    expressions.push(new ArithmeticExpression(currentSymbol.getVal(), e2, e1));
+                } catch(EmptyStackException e) {
+                    error = "Not enough parameters for arithmetic operation";
+                    return false;
+                } }
         }
-        rootExpression = expressions.poll();
+        try {
+            rootExpression = expressions.pop();
+        } catch (EmptyStackException e) {
+            error = "Root Expression is missing";
+            return false;
+        }
         if (!expressions.isEmpty()) {
             error = "Too many symbols given";
             return false;
