@@ -1,7 +1,9 @@
 package calc.evaluate.parser;
 ;
 import calc.evaluate.parser.expression.ArithmeticExpression;
+import calc.evaluate.parser.expression.LogExpression;
 import calc.evaluate.parser.expression.NumericExpression;
+import calc.evaluate.parser.expression.TrigExpression;
 import calc.evaluate.parser.symbol.Symbol;
 import calc.evaluate.parser.symbol.SymbolType;
 import org.junit.Assert;
@@ -107,10 +109,32 @@ public class RpnParserTest {
         symbols.add(new Symbol(SymbolType.NUMBER, "4"));
         symbols.add(new Symbol(SymbolType.ARITHMETIC, "/"));
         symbols.add(new Symbol(SymbolType.TRIG, "ctan"));
-        symbols.add(new Symbol(SymbolType.NUMBER, "5"));
-        symbols.add(new Symbol(SymbolType.ARITHMETIC, "*"));
         Assert.assertTrue(rpnParser.parse());
-        Assert.assertTrue(rpnParser.getRootExpression() instanceof ArithmeticExpression);
-        Assert.assertEquals(-5d, rpnParser.getRootExpression().getValue(), EPSILON);
+        Assert.assertTrue(rpnParser.getRootExpression() instanceof TrigExpression);
+        Assert.assertEquals(-1d, rpnParser.getRootExpression().getValue(), EPSILON);
+    }
+
+    @Test
+    public void parseNestedLog() {
+        symbols.add(new Symbol(SymbolType.NUMBER, "10"));
+        symbols.add(new Symbol(SymbolType.NUMBER, "100"));
+        symbols.add(new Symbol(SymbolType.ARITHMETIC, "*"));
+        symbols.add(new Symbol(SymbolType.NUMBER, "100"));
+        symbols.add(new Symbol(SymbolType.ARITHMETIC, "*"));
+        symbols.add(new Symbol(SymbolType.LOG, "log"));
+        Assert.assertTrue(rpnParser.parse());
+        Assert.assertTrue(rpnParser.getRootExpression() instanceof LogExpression);
+        Assert.assertEquals(5d, rpnParser.getRootExpression().getValue(), EPSILON);
+    }
+
+    @Test
+    public void parseNestedLn() {
+        symbols.add(new Symbol(SymbolType.NUMBER, "e"));
+        symbols.add(new Symbol(SymbolType.NUMBER, "e"));
+        symbols.add(new Symbol(SymbolType.ARITHMETIC, "*"));
+        symbols.add(new Symbol(SymbolType.LOG, "ln"));
+        Assert.assertTrue(rpnParser.parse());
+        Assert.assertTrue(rpnParser.getRootExpression() instanceof LogExpression);
+        Assert.assertEquals(2, rpnParser.getRootExpression().getValue(), EPSILON);
     }
 }
