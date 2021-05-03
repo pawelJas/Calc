@@ -1,4 +1,4 @@
-package calc.evaluate;
+package calc.evaluate.parser;
 
 import calc.evaluate.parser.SymbolParser;
 import calc.evaluate.parser.symbol.Symbol;

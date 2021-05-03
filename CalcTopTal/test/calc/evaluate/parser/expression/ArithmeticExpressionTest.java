@@ -43,10 +43,8 @@ public class ArithmeticExpressionTest {
     @Test
     public void evalCacheErrorResults() {
         arithmeticExpression = new ArithmeticExpression("+", e1, e2);
-        when(e2.getErrorCode()).thenReturn(ExpressionError.UNKNOWN_ERROR);
+        when(e2.getErrorCode()).thenReturn(ExpressionError.UNKNOWN_ERROR, ExpressionError.NO_ERROR);
         Assert.assertEquals(ExpressionError.UNKNOWN_ERROR, arithmeticExpression.getErrorCode());
-        when(e1.getErrorCode()).thenReturn(ExpressionError.NO_ERROR);
-        when(e2.getErrorCode()).thenReturn(ExpressionError.DIVIDE_BY_ZERO);
         Assert.assertEquals(ExpressionError.UNKNOWN_ERROR, arithmeticExpression.getErrorCode());
     }
 

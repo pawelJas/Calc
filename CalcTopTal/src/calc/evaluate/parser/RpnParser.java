@@ -5,7 +5,6 @@ import calc.evaluate.parser.expression.Expression;
 import calc.evaluate.parser.expression.NumericExpression;
 import calc.evaluate.parser.symbol.Symbol;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -61,7 +60,7 @@ public class RpnParser {
         }
         rootExpression = expressions.poll();
         if (!expressions.isEmpty()) {
-            error = "Too many values given";
+            error = "Too many symbols given";
             return false;
         }
         return true;

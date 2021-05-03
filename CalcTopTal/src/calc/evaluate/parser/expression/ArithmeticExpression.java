@@ -13,12 +13,10 @@ public class ArithmeticExpression extends Expression  {
 
     @Override
     void eval() {
-        if(e1.getErrorCode() != ExpressionError.NO_ERROR) {
-            errorCode = e1.getErrorCode();
+        if((errorCode = e1.getErrorCode()) != ExpressionError.NO_ERROR) {
             return;
         }
-        if(e2.getErrorCode() != ExpressionError.NO_ERROR) {
-            errorCode = e2.getErrorCode();
+        if((errorCode = e2.getErrorCode()) != ExpressionError.NO_ERROR) {
             return;
         }
         switch(operation) {
