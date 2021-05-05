@@ -11,26 +11,56 @@ Do not use any library that can accomplish any of the listed requirements.
 The calculator should handle all error cases properly (by carefully indicating the errors to the user).
 Write tests.
 
+Approach
+Javafx has been used to implement the challenge. As agreed the UI interface is very basic.
+I have put the main focus on the functionality, language parser and the error reporting.
+
+All expected functionalities have been implemented as various Expressions.
+Expressions are built in the form of a tree with a root expression representing the calculator input.
+The Expression building and evaluation is done in phases:
+- First the SymbolParser decomposes the String into Symbol
+- Secondly the RpnParser or InfixParser builds the Expression tree
+- Lastly the expressions are evaluated.
+
+
+Expressions are not evaluated until the parent expression requests it.
+The above help in analyzing the errors and setting the error priorities. 
+There are 3 main group of errors based on the language parsing layers:
+- Parsing Error
+- Expression building error
+- Expression evaluation error
+
+
 Examples:
+
 input:   (3+(4-1))*5
+
 output: 30
 
 input:   2 * x + 0.5 = 1
+
 output: x = 0.25
 
 input:   2 * x + 1 = 2*(1-x)
+
 output: x = 0.25
 
 input: Log(10)
+
 output: 1
 
 input: Log10
+
 output: 1
 
 input: Log100(10)
+
 output: 0.5
 
 input: sin(pi) or sinpi
+
 output: 0
 
 input: sin(1.5pi) or sin(1.5*pi)
+
+output: -1
