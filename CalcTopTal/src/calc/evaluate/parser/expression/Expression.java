@@ -1,6 +1,7 @@
 package calc.evaluate.parser.expression;
 
 public abstract class Expression {
+    String operation = "";
     double val;
     double variableVal = 0d;
     char variableName = 0;
@@ -36,6 +37,9 @@ public abstract class Expression {
     public String toString() {
         evalOnce();
         if(errorCode == ExpressionError.NO_ERROR) {
+            if(operation.equals("=")) {
+                return variableName + " = " + Double.toString(val);
+            }
             if(isComplex()) {
                 return Double.toString(variableVal) + variableName + " = " + Double.toString(val);
             }

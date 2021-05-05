@@ -93,6 +93,14 @@ public class ArithmeticExpressionTest {
     }
 
     @Test
+    public void evalEqualsWithoutVariableError() {
+        arithmeticExpression = new ArithmeticExpression("=", e1, e2);
+        Assert.assertEquals(ExpressionError.INVALID_EQUATION, arithmeticExpression.getErrorCode());
+        arithmeticExpression = new ArithmeticExpression("=", eComplex1, eComplex1);
+        Assert.assertEquals(ExpressionError.INVALID_EQUATION, arithmeticExpression.getErrorCode());
+    }
+
+    @Test
     public void evalAdd() {
         arithmeticExpression = new ArithmeticExpression("+", e1, e2);
         Assert.assertEquals(val1 + val2, arithmeticExpression.getValue(), EPSILON);
@@ -170,5 +178,12 @@ public class ArithmeticExpressionTest {
         Assert.assertEquals(complexVal1 / val2, arithmeticExpression.getValue(), EPSILON);
         Assert.assertTrue(arithmeticExpression.isComplex());
         Assert.assertEquals(complexVal1var / val2, arithmeticExpression.getVariableValue(), EPSILON);
+    }
+
+    @Test
+    public void evalEquation() {
+        arithmeticExpression = new ArithmeticExpression("=", eComplex1, eComplex2);
+        Assert.assertEquals((complexVal2 - complexVal1) / (-1.0 * (complexVal1var - complexVal2var)), arithmeticExpression.getValue(), EPSILON);
+        Assert.assertFalse(arithmeticExpression.isComplex());
     }
 }

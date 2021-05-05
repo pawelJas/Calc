@@ -1,7 +1,6 @@
 package calc.evaluate.parser.expression;
 
 public class ArithmeticExpression extends Expression  {
-    String operation;
     Expression e1;
     Expression e2;
 
@@ -43,6 +42,9 @@ public class ArithmeticExpression extends Expression  {
             case "/":
                 divide();
                 break;
+            case "=":
+                equals();
+                break;
         }
         variableName = e1.isComplex() ? e1.getVariableName() : e2.getVariableName();
     }
@@ -74,5 +76,13 @@ public class ArithmeticExpression extends Expression  {
             variableVal = e1.getVariableValue() / e2.getValue();
         }
         val = e1.getValue() / e2.getValue();
+    }
+
+    void equals() {
+        if(e1.getVariableValue() == e2.getVariableValue()){
+            errorCode = ExpressionError.INVALID_EQUATION;
+            return;
+        }
+        val = (e2.getValue() - e1.getValue()) / (-1.0 * (e1.getVariableValue() - e2.getVariableValue()));
     }
 }
