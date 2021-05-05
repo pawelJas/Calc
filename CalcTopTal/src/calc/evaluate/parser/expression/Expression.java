@@ -22,7 +22,7 @@ public abstract class Expression {
         return variableVal;
     }
 
-    public double getVariableName() {
+    public char getVariableName() {
         evalOnce();
         return variableName;
     }
