@@ -11,9 +11,11 @@ Do not use any library that can accomplish any of the listed requirements.
 The calculator should handle all error cases properly (by carefully indicating the errors to the user).
 Write tests.
 
-Approach
-Javafx has been used to implement the challenge. As agreed the UI interface is very basic.
-I have put the main focus on the functionality, language parser and the error reporting.
+Approach:
+
+Javafx has been used to implement the challenge. I have used IntelliJ and IntelliJ's build in files to organise, build and run the project.
+
+As agreed the UI interface is very basic. I have put the main focus on the functionality, language parser and the error reporting.
 
 All expected functionalities have been implemented as various Expressions.
 Expressions are built in the form of a tree with a root expression representing the calculator input.
