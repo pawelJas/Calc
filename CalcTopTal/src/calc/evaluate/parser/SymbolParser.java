@@ -60,7 +60,10 @@ public class SymbolParser {
             it.next();
             return 0;
         }
-        if(Character.isDigit(it.current())){
+        if(it.current() == '('){
+            symbol = getParentheses(it);
+        }
+        else if(Character.isDigit(it.current())){
             symbol = getNumericSymbol(it);
         }
         else if(arithmeticOperations.contains(it.current())){
@@ -78,6 +81,31 @@ public class SymbolParser {
         }
         symbols.add(symbol);
         return 0;
+    }
+
+    Symbol getParentheses(CharacterIterator it) {
+        StringBuilder sectionString = new StringBuilder();
+        it.next();
+        int depth = 1;
+        while(it.current() != CharacterIterator.DONE) {
+            if(it.current() == '(') {
+                depth++;
+            }
+            else if(it.current() == ')') {
+                depth--;
+            }
+            if(depth == 0) {
+                break;
+            }
+            sectionString.append(it.current());
+            it.next();
+        }
+        it.next();
+        if(depth != 0) {
+            error = "Invalid parentheses";
+            return null;
+        }
+        return new Symbol(SymbolType.PARENTHESIS, sectionString.toString());
     }
 
     Symbol getNumericSymbol(CharacterIterator it) {

@@ -151,6 +151,21 @@ public class SymbolParserTest {
     }
 
     @org.junit.Test
+    public void parseParentheses() {
+        symbolParser = new SymbolParser("(2) + (() +) ");
+        String[] expected = {"2", "+", "() +"};
+        Assert.assertTrue(symbolParser.parse());
+        ArrayList<Symbol> symbols = symbolParser.getSymbols();
+        Assert.assertEquals(expected.length, symbolParser.getSymbols().size());
+        Assert.assertTrue(symbols.get(0).isParenthesis());
+        Assert.assertTrue(symbols.get(1).isArithmetic());
+        Assert.assertTrue(symbols.get(2).isParenthesis());
+        for (int i = 0; i < expected.length; i++) {
+            Assert.assertEquals(expected[i], symbols.get(i).getVal());
+        }
+    }
+
+    @org.junit.Test
     public void parseNumberError() {
         symbolParser = new SymbolParser("0.33.0");
         Assert.assertFalse(symbolParser.parse());
@@ -186,8 +201,18 @@ public class SymbolParserTest {
     }
 
     @org.junit.Test
+    public void parseInvalidParentheses() {
+        symbolParser = new SymbolParser("(rrrrrr");
+        Assert.assertFalse(symbolParser.parse());
+        Assert.assertEquals("Invalid parentheses", symbolParser.getError());
+        symbolParser = new SymbolParser("(2) + (() +");
+        Assert.assertFalse(symbolParser.parse());
+        Assert.assertEquals("Invalid parentheses", symbolParser.getError());
+    }
+
+    @org.junit.Test
     public void parseEasy() {
-        symbolParser = new SymbolParser("0 0 22.3+3*1     / ");
+        symbolParser = new SymbolParser("0 (0) 22.3+3*1     / ");
         String[] expected = {"0", "0", "22.3", "+", "3", "*", "1", "/"};
         Assert.assertTrue(symbolParser.parse());
         ArrayList<Symbol> symbols = symbolParser.getSymbols();
@@ -199,8 +224,8 @@ public class SymbolParserTest {
 
     @org.junit.Test
     public void parseHarder() {
-        symbolParser = new SymbolParser("log x ln+3.0  3 sin  5.9x  / ");
-        String[] expected = {"log", "x", "ln", "+", "3.0", "3", "sin", "5.9 x", "/"};
+        symbolParser = new SymbolParser("log x ln+3.0  3 sin  5.9x  / (((33 + 4) * 4) + 3)");
+        String[] expected = {"log", "x", "ln", "+", "3.0", "3", "sin", "5.9 x", "/", "((33 + 4) * 4) + 3"};
         Assert.assertTrue(symbolParser.parse());
         ArrayList<Symbol> symbols = symbolParser.getSymbols();
         Assert.assertEquals(expected.length, symbolParser.getSymbols().size());

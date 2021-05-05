@@ -56,4 +56,8 @@ public class Symbol {
     public boolean isLog_with_base() {
         return type == SymbolType.LOG_WITH_BASE;
     }
+
+    public boolean isParenthesis() {
+        return type == SymbolType.PARENTHESIS;
+    }
 }
