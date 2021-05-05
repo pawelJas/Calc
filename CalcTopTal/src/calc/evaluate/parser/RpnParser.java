@@ -66,13 +66,21 @@ public class RpnParser {
                     return false;
                 }
             }
-            else if (currentSymbol.isTrig() || currentSymbol.isLog()) {
+            else if (currentSymbol.isTrig_with_param()) {
+                expressions.push(new TrigExpression(currentSymbol.getVal()));
+            }
+            else if (currentSymbol.isLn_with_param()) {
+                expressions.push(new LogExpression(currentSymbol.getVal()));
+            }
+            else if (currentSymbol.isTrig() || currentSymbol.isLog() || currentSymbol.isLog_with_base() || currentSymbol.isLog_with_param()) {
                 try {
                     Expression param = expressions.pop();
                     if (currentSymbol.isTrig()) {
                         expressions.push(new TrigExpression(currentSymbol.getVal(), param));
-                    } else {
+                    } else if (currentSymbol.isLog()) {
                         expressions.push(new LogExpression(currentSymbol.getVal(), param));
+                    } else {
+                        expressions.push(new LogExpression(currentSymbol.getVal(), param, true));
                     }
                 } catch(EmptyStackException e) {
                     error = "Not enough parameters for arithmetic operation";

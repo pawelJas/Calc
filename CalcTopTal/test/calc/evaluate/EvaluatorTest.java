@@ -53,11 +53,15 @@ public class EvaluatorTest {
     public void evalSinCos() {
         evaluator = new Evaluator("pi sin pi cos +");
         Assert.assertEquals(-1d, Double.parseDouble(evaluator.eval()), EPSILON);
+        evaluator = new Evaluator("cos0 cospi -");
+        Assert.assertEquals(2d, Double.parseDouble(evaluator.eval()), EPSILON);
     }
 
     @Test
     public void evalTanCtan() {
-        evaluator = new Evaluator("5 tan 5 ctan *");
+        evaluator = new Evaluator("5 tan ctan5 *");
+        Assert.assertEquals(1d, Double.parseDouble(evaluator.eval()), EPSILON);
+        evaluator = new Evaluator("tan5 5 ctan *");
         Assert.assertEquals(1d, Double.parseDouble(evaluator.eval()), EPSILON);
     }
 
@@ -65,6 +69,8 @@ public class EvaluatorTest {
     public void evalLog() {
         evaluator = new Evaluator("1000 log e ln e e /++");
         Assert.assertEquals(5d, Double.parseDouble(evaluator.eval()), EPSILON);
+        evaluator = new Evaluator("8 log2 lne +");
+        Assert.assertEquals(4d, Double.parseDouble(evaluator.eval()), EPSILON);
     }
 
     @Test

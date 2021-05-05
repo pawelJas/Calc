@@ -115,6 +115,14 @@ public class RpnParserTest {
     }
 
     @Test
+    public void parseTrigWithParam() {
+        symbols.add(new Symbol(SymbolType.TRIG_WITH_PARAM, "cos pi"));
+        Assert.assertTrue(rpnParser.parse());
+        Assert.assertTrue(rpnParser.getRootExpression() instanceof TrigExpression);
+        Assert.assertEquals(-1d, rpnParser.getRootExpression().getValue(), EPSILON);
+    }
+
+    @Test
     public void parseNestedLog() {
         symbols.add(new Symbol(SymbolType.NUMBER, "10"));
         symbols.add(new Symbol(SymbolType.NUMBER, "100"));
@@ -128,6 +136,28 @@ public class RpnParserTest {
     }
 
     @Test
+    public void parseLogWithBase() {
+        symbols.add(new Symbol(SymbolType.NUMBER, "100"));
+        symbols.add(new Symbol(SymbolType.NUMBER, "100"));
+        symbols.add(new Symbol(SymbolType.ARITHMETIC, "*"));
+        symbols.add(new Symbol(SymbolType.NUMBER, "100"));
+        symbols.add(new Symbol(SymbolType.ARITHMETIC, "*"));
+        symbols.add(new Symbol(SymbolType.LOG_WITH_BASE, "log 1000"));
+        Assert.assertTrue(rpnParser.parse());
+        Assert.assertTrue(rpnParser.getRootExpression() instanceof LogExpression);
+        Assert.assertEquals(2d, rpnParser.getRootExpression().getValue(), EPSILON);
+    }
+
+    @Test
+    public void parseLogWithParam() {                            //same behaviour as with Base iin RPN
+        symbols.add(new Symbol(SymbolType.NUMBER, "32"));
+        symbols.add(new Symbol(SymbolType.LOG_WITH_PARAM, "log 2"));
+        Assert.assertTrue(rpnParser.parse());
+        Assert.assertTrue(rpnParser.getRootExpression() instanceof LogExpression);
+        Assert.assertEquals(5d, rpnParser.getRootExpression().getValue(), EPSILON);
+    }
+
+    @Test
     public void parseNestedLn() {
         symbols.add(new Symbol(SymbolType.NUMBER, "e"));
         symbols.add(new Symbol(SymbolType.NUMBER, "e"));
@@ -135,9 +165,16 @@ public class RpnParserTest {
         symbols.add(new Symbol(SymbolType.LOG, "ln"));
         Assert.assertTrue(rpnParser.parse());
         Assert.assertTrue(rpnParser.getRootExpression() instanceof LogExpression);
-        Assert.assertEquals(2, rpnParser.getRootExpression().getValue(), EPSILON);
+        Assert.assertEquals(2d, rpnParser.getRootExpression().getValue(), EPSILON);
     }
 
+    @Test
+    public void parseLnWithParam() {
+        symbols.add(new Symbol(SymbolType.LN_WITH_PARAM, "ln e"));
+        Assert.assertTrue(rpnParser.parse());
+        Assert.assertTrue(rpnParser.getRootExpression() instanceof LogExpression);
+        Assert.assertEquals(1d, rpnParser.getRootExpression().getValue(), EPSILON);
+    }
     @Test
     public void parseEquation() {
         symbols.add(new Symbol(SymbolType.QUICK_MULTIPLICATION, "2 x"));
@@ -151,6 +188,6 @@ public class RpnParserTest {
         symbols.add(new Symbol(SymbolType.ARITHMETIC, "="));
         Assert.assertTrue(rpnParser.parse());
         Assert.assertTrue(rpnParser.getRootExpression() instanceof ArithmeticExpression);
-        Assert.assertEquals(4.0, rpnParser.getRootExpression().getValue(), EPSILON);
+        Assert.assertEquals(4d, rpnParser.getRootExpression().getValue(), EPSILON);
     }
 }
