@@ -140,15 +140,17 @@ public class RpnParserTest {
 
     @Test
     public void parseEquation() {
+        symbols.add(new Symbol(SymbolType.QUICK_MULTIPLICATION, "2 x"));
         symbols.add(new Symbol(SymbolType.NUMBER, "2"));
         symbols.add(new Symbol(SymbolType.NUMBER, "x"));
         symbols.add(new Symbol(SymbolType.ARITHMETIC, "*"));
-        symbols.add(new Symbol(SymbolType.NUMBER, "5"));
         symbols.add(new Symbol(SymbolType.ARITHMETIC, "+"));
+        symbols.add(new Symbol(SymbolType.NUMBER, "16"));
+        symbols.add(new Symbol(SymbolType.ARITHMETIC, "-"));
         symbols.add(new Symbol(SymbolType.NUMBER, "0"));
         symbols.add(new Symbol(SymbolType.ARITHMETIC, "="));
         Assert.assertTrue(rpnParser.parse());
         Assert.assertTrue(rpnParser.getRootExpression() instanceof ArithmeticExpression);
-        Assert.assertEquals(2.5, rpnParser.getRootExpression().getValue(), EPSILON);
+        Assert.assertEquals(4.0, rpnParser.getRootExpression().getValue(), EPSILON);
     }
 }

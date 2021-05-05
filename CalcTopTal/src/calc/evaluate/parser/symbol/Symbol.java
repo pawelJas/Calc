@@ -29,6 +29,10 @@ public class Symbol {
         return type == SymbolType.CONST;
     }
 
+    public boolean isQuickMul() {
+        return type == SymbolType.QUICK_MULTIPLICATION;
+    }
+
     public boolean isTrig() {
         return type == SymbolType.TRIG;
     }

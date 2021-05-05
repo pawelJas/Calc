@@ -53,6 +53,9 @@ public class RpnParser {
             if (currentSymbol.isNumeric() || currentSymbol.isConst() || currentSymbol.isVariable()) {
                 expressions.push(new NumericExpression(currentSymbol.getVal()));
             }
+            else if (currentSymbol.isQuickMul()) {
+                expressions.push(new ArithmeticExpression(currentSymbol.getVal()));
+            }
             else if (currentSymbol.isArithmetic()){
                 try {
                     Expression param1 = expressions.pop();

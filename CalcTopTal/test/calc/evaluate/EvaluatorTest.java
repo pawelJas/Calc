@@ -69,9 +69,9 @@ public class EvaluatorTest {
 
     @Test
     public void evalVariable() {
-        evaluator = new Evaluator("2 x * 5 + 0 =");
-        Assert.assertEquals("x = 2.5", evaluator.eval());
-        evaluator = new Evaluator("2 x * 5 + 20 =");
-        Assert.assertEquals("x = -7.5", evaluator.eval());
+        evaluator = new Evaluator("2 x * 5 + 3x =");
+        Assert.assertEquals("x = 5.0", evaluator.eval());
+        evaluator = new Evaluator("2 x * 10 + 5 =");
+        Assert.assertEquals("x = -2.5", evaluator.eval());
     }
 }

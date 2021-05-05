@@ -10,6 +10,13 @@ public class ArithmeticExpression extends Expression  {
         this.e2 = e2;
     }
 
+    public ArithmeticExpression(String quickMultiplication) {
+        String[] split = quickMultiplication.split(" ");
+        this.operation = "*";
+        this.e1 = new NumericExpression(split[0]);
+        this.e2 = new NumericExpression(split[1]);
+    }
+
     @Override
     void eval() {
         System.out.println("Arithmetic evaluation of " + operation);
@@ -83,6 +90,6 @@ public class ArithmeticExpression extends Expression  {
             errorCode = ExpressionError.INVALID_EQUATION;
             return;
         }
-        val = (e2.getValue() - e1.getValue()) / (-1.0 * (e1.getVariableValue() - e2.getVariableValue()));
+        val = (e2.getValue() - e1.getValue()) / (e1.getVariableValue() - e2.getVariableValue());
     }
 }

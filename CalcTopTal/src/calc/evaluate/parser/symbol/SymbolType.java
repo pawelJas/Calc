@@ -6,5 +6,6 @@ public enum SymbolType {
     VARIABLE,
     CONST,
     TRIG,
-    LOG
+    LOG,
+    QUICK_MULTIPLICATION
 }

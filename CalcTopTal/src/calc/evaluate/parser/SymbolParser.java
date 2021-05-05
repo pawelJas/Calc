@@ -97,6 +97,21 @@ public class SymbolParser {
             numberAsString.append(it.current());
             it.next();
         }
+        if(Character.isAlphabetic(it.current())) {
+            String symbol = findKeyword(it);
+            if (symbol == null) {
+                return null;
+            }
+            if(variable.contains(symbol)) {
+                return new Symbol(SymbolType.QUICK_MULTIPLICATION, numberAsString.toString() + " " + symbol);
+            }
+            else if(constValue.contains(symbol)) {
+                return new Symbol(SymbolType.QUICK_MULTIPLICATION, numberAsString.toString() + " " + symbol);
+            }
+            else {
+                return null;
+            }
+        }
         return new Symbol(SymbolType.NUMBER, numberAsString.toString());
     }
 

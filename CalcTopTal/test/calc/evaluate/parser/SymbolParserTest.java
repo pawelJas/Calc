@@ -76,6 +76,21 @@ public class SymbolParserTest {
     }
 
     @org.junit.Test
+    public void parseQuickMul() {
+        symbolParser = new SymbolParser("3x 4.0Pi");
+        String[] expected = {"3 x", "4.0 Pi"};
+        Assert.assertTrue(symbolParser.parse());
+        ArrayList<Symbol> symbols = symbolParser.getSymbols();
+        Assert.assertEquals(expected.length, symbolParser.getSymbols().size());
+        symbols.forEach(symbol ->
+                Assert.assertTrue(symbol.isQuickMul())
+        );
+        for (int i = 0; i < expected.length; i++) {
+            Assert.assertEquals(expected[i], symbols.get(i).getVal());
+        }
+    }
+
+    @org.junit.Test
     public void parseTrig() {
         symbolParser = new SymbolParser("sin cos tan ctan ctan");
         String[] expected = {"sin", "cos", "tan", "ctan", "ctan"};
@@ -140,8 +155,8 @@ public class SymbolParserTest {
 
     @org.junit.Test
     public void parseHarder() {
-        symbolParser = new SymbolParser("log x ln+3.0  3 sin    / ");
-        String[] expected = {"log", "x", "ln", "+", "3.0", "3", "sin", "/"};
+        symbolParser = new SymbolParser("log x ln+3.0  3 sin  5.9x  / ");
+        String[] expected = {"log", "x", "ln", "+", "3.0", "3", "sin", "5.9 x", "/"};
         Assert.assertTrue(symbolParser.parse());
         ArrayList<Symbol> symbols = symbolParser.getSymbols();
         Assert.assertEquals(expected.length, symbolParser.getSymbols().size());

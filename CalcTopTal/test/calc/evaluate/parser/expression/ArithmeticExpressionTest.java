@@ -166,6 +166,21 @@ public class ArithmeticExpressionTest {
     }
 
     @Test
+    public void evalQuickMultiConst() {
+        arithmeticExpression = new ArithmeticExpression("4 Pi");
+        Assert.assertEquals(4 * Math.PI, arithmeticExpression.getValue(), EPSILON);
+        Assert.assertFalse(arithmeticExpression.isComplex());
+    }
+
+    @Test
+    public void evalQuickMultiVariable() {
+        arithmeticExpression = new ArithmeticExpression("2.5 x");
+        Assert.assertEquals(0d, arithmeticExpression.getValue(), EPSILON);
+        Assert.assertTrue(arithmeticExpression.isComplex());
+        Assert.assertEquals(2.5, arithmeticExpression.getVariableValue(), EPSILON);
+    }
+
+    @Test
     public void evalDiv() {
         arithmeticExpression = new ArithmeticExpression("/", e1, e2);
         Assert.assertEquals(val1 / val2, arithmeticExpression.getValue(), EPSILON);
@@ -183,7 +198,7 @@ public class ArithmeticExpressionTest {
     @Test
     public void evalEquation() {
         arithmeticExpression = new ArithmeticExpression("=", eComplex1, eComplex2);
-        Assert.assertEquals((complexVal2 - complexVal1) / (-1.0 * (complexVal1var - complexVal2var)), arithmeticExpression.getValue(), EPSILON);
+        Assert.assertEquals((complexVal2 - complexVal1) / (complexVal1var - complexVal2var), arithmeticExpression.getValue(), EPSILON);
         Assert.assertFalse(arithmeticExpression.isComplex());
     }
 }
