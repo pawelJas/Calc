@@ -66,4 +66,10 @@ public class EvaluatorTest {
         evaluator = new Evaluator("1000 log e ln e e /++");
         Assert.assertEquals(5d, Double.parseDouble(evaluator.eval()), EPSILON);
     }
+
+    @Test
+    public void evalVariable() {
+        evaluator = new Evaluator("x");
+        Assert.assertEquals("1.0x = 0.0", evaluator.eval());
+    }
 }

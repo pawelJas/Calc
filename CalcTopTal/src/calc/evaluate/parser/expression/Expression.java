@@ -2,6 +2,8 @@ package calc.evaluate.parser.expression;
 
 public abstract class Expression {
     double val;
+    double variableVal = 0d;
+    char variableName = 0;
     boolean wasEvaluated = false;
     ExpressionError errorCode = ExpressionError.NO_ERROR;
 
@@ -15,10 +17,28 @@ public abstract class Expression {
         return val;
     }
 
+    public double getVariableValue() {
+        evalOnce();
+        return variableVal;
+    }
+
+    public double getVariableName() {
+        evalOnce();
+        return variableName;
+    }
+
+    public boolean isComplex() {
+        evalOnce();
+        return variableVal != 0d;
+    }
+
     @Override
     public String toString() {
         evalOnce();
         if(errorCode == ExpressionError.NO_ERROR) {
+            if(isComplex()) {
+                return Double.toString(variableVal) + variableName + " = " + Double.toString(val);
+            }
             return Double.toString(val);
         }
         else {

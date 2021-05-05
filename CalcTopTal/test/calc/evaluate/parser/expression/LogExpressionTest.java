@@ -16,7 +16,7 @@ public class LogExpressionTest {
     @Before
     public void setUp() throws Exception {
         when(param.getErrorCode()).thenReturn(ExpressionError.NO_ERROR);
-
+        when(param.isComplex()).thenReturn(false);
         when(param.getValue()).thenReturn(123d);
     }
 
@@ -25,6 +25,13 @@ public class LogExpressionTest {
         when(param.getErrorCode()).thenReturn(ExpressionError.UNKNOWN_ERROR);
         logExpression = new LogExpression("ln", param);
         Assert.assertEquals(ExpressionError.UNKNOWN_ERROR, logExpression.getErrorCode());
+    }
+
+    @Test
+    public void evalComplexNumberError() {
+        when(param.isComplex()).thenReturn(true);
+        logExpression = new LogExpression("ln", param);
+        Assert.assertEquals(ExpressionError.ILLEGAL_OPERATION_ON_VARIABLE, logExpression.getErrorCode());
     }
 
     @Test

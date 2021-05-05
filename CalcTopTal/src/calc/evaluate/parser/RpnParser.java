@@ -50,7 +50,7 @@ public class RpnParser {
         Stack<Expression> expressions = new Stack<>();
         while(it.hasNext()) {
             currentSymbol = it.next();
-            if (currentSymbol.isNumeric() || currentSymbol.isConst()) {
+            if (currentSymbol.isNumeric() || currentSymbol.isConst() || currentSymbol.isVariable()) {
                 expressions.push(new NumericExpression(currentSymbol.getVal()));
             }
             else if (currentSymbol.isArithmetic()){
@@ -76,9 +76,6 @@ public class RpnParser {
                     return false;
                 }
             }
-//            else if (currentSymbol.isVariable()) {
-//
-//            }
         }
         try {
             rootExpression = expressions.pop();

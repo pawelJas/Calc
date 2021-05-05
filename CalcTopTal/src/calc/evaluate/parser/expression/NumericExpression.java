@@ -3,8 +3,8 @@ package calc.evaluate.parser.expression;
 public class NumericExpression extends Expression {
     String input;
 
-    public NumericExpression(String numericInput) {
-        this.input = numericInput;
+    public NumericExpression(String input) {
+        this.input = input;
     }
 
     @Override
@@ -16,6 +16,12 @@ public class NumericExpression extends Expression {
                 break;
             case 'e':
                 val = Math.E;
+                break;
+            case 'x':
+            case 'y':
+                val = 0d;
+                variableName = input.charAt(0);
+                variableVal = 1d;
                 break;
             default:
                 val = Double.parseDouble(input);

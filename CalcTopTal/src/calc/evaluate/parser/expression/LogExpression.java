@@ -25,6 +25,10 @@ public class LogExpression extends Expression   {
         if((errorCode = param.getErrorCode()) != ExpressionError.NO_ERROR) {
             return;
         }
+        if(param.isComplex()) {
+            errorCode = ExpressionError.ILLEGAL_OPERATION_ON_VARIABLE;
+            return;
+        }
         if (param.getValue() <= 0.0 || base <= 0.0) {
             errorCode = ExpressionError.INVALID_ALGORITHM;
             return;

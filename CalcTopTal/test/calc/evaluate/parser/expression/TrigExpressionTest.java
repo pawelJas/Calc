@@ -18,7 +18,7 @@ public class TrigExpressionTest {
     @Before
     public void setUp() throws Exception {
         when(param.getErrorCode()).thenReturn(ExpressionError.NO_ERROR);
-
+        when(param.isComplex()).thenReturn(false);
         when(param.getValue()).thenReturn(Math.PI);
     }
 
@@ -27,6 +27,13 @@ public class TrigExpressionTest {
         when(param.getErrorCode()).thenReturn(ExpressionError.UNKNOWN_ERROR);
         trigExpression = new TrigExpression("cos", param);
         Assert.assertEquals(ExpressionError.UNKNOWN_ERROR, trigExpression.getErrorCode());
+    }
+
+    @Test
+    public void evalComplexNumberError() {
+        when(param.isComplex()).thenReturn(true);
+        trigExpression = new TrigExpression("cos", param);
+        Assert.assertEquals(ExpressionError.ILLEGAL_OPERATION_ON_VARIABLE, trigExpression.getErrorCode());
     }
 
     @Test

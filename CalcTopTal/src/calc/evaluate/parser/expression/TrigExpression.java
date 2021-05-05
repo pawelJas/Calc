@@ -15,6 +15,10 @@ public class TrigExpression extends Expression   {
         if((errorCode = param.getErrorCode()) != ExpressionError.NO_ERROR) {
             return;
         }
+        if(param.isComplex()) {
+            errorCode = ExpressionError.ILLEGAL_OPERATION_ON_VARIABLE;
+            return;
+        }
         double radians = param.getValue();
         switch(operation) {
             case "sin":
