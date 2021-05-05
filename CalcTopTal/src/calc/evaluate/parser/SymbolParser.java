@@ -109,6 +109,7 @@ public class SymbolParser {
                 return new Symbol(SymbolType.QUICK_MULTIPLICATION, numberAsString.toString() + " " + symbol);
             }
             else {
+                error = "Illegal phrase after the number";
                 return null;
             }
         }
@@ -136,16 +137,37 @@ public class SymbolParser {
     }
 
     Symbol addFunction(String funcName, CharacterIterator it) {
-        if(it.current() != CharacterIterator.DONE && (Character.isDigit(it.current()) || Character.isAlphabetic(it.current()))) {
-            error = "TODO: complex function";
-            return null;
+        Symbol secondSymbol = null;
+        String funcSymbolStr = funcName;
+        if(it.current() != CharacterIterator.DONE && Character.isDigit(it.current())) {
+            secondSymbol = getNumericSymbol(it);
+            if(secondSymbol == null) {
+                return null;
+            }
+            else if (secondSymbol.isQuickMul()) {
+                error = "Illegal phrase after the function";
+                return null;
+            }
         }
-
+        else if(it.current() != CharacterIterator.DONE && Character.isAlphabetic(it.current())) {
+            secondSymbol = getAlphabeticSymbol(it);
+            if(secondSymbol == null) {
+                return null;
+            }
+            else if (!secondSymbol.isConst()) {
+                error = "Illegal phrase after the function";
+                return null;
+            }
+        }
+        if(secondSymbol != null) {
+            funcSymbolStr = funcName + " " + secondSymbol.getVal();
+        }
+        System.out.println(funcSymbolStr);
         if(trigonometricOperations.contains(funcName)) {
-            return new Symbol(SymbolType.TRIG, funcName);
+            return new Symbol(SymbolType.TRIG, funcSymbolStr);
         }
         else {
-            return new Symbol(SymbolType.LOG, funcName);
+            return new Symbol(SymbolType.LOG, funcSymbolStr);
         }
     }
 

@@ -106,9 +106,39 @@ public class SymbolParserTest {
     }
 
     @org.junit.Test
+    public void parseTrigWithParam() {
+        symbolParser = new SymbolParser("sinPi cos3");
+        String[] expected = {"sin Pi", "cos 3"};
+        Assert.assertTrue(symbolParser.parse());
+        ArrayList<Symbol> symbols = symbolParser.getSymbols();
+        Assert.assertEquals(expected.length, symbolParser.getSymbols().size());
+        symbols.forEach(symbol ->
+                Assert.assertTrue(symbol.isTrig())
+        );
+        for (int i = 0; i < expected.length; i++) {
+            Assert.assertEquals(expected[i], symbols.get(i).getVal());
+        }
+    }
+
+    @org.junit.Test
     public void parseLog() {
         symbolParser = new SymbolParser("log ln ln");
         String[] expected = {"log", "ln", "ln"};
+        Assert.assertTrue(symbolParser.parse());
+        ArrayList<Symbol> symbols = symbolParser.getSymbols();
+        Assert.assertEquals(expected.length, symbolParser.getSymbols().size());
+        symbols.forEach(symbol ->
+                Assert.assertTrue(symbol.isLog())
+        );
+        for (int i = 0; i < expected.length; i++) {
+            Assert.assertEquals(expected[i], symbols.get(i).getVal());
+        }
+    }
+
+    @org.junit.Test
+    public void parseLogWithParam() {
+        symbolParser = new SymbolParser("log50 ln5 lne");
+        String[] expected = {"log 50", "ln 5", "ln e"};
         Assert.assertTrue(symbolParser.parse());
         ArrayList<Symbol> symbols = symbolParser.getSymbols();
         Assert.assertEquals(expected.length, symbolParser.getSymbols().size());
@@ -139,6 +169,20 @@ public class SymbolParserTest {
         symbolParser = new SymbolParser("0.3 + siin 11");
         Assert.assertFalse(symbolParser.parse());
         Assert.assertEquals("Invalid keyword", symbolParser.getError());
+    }
+
+    @org.junit.Test
+    public void parseIllegalSymbolAfterNumber() {
+        symbolParser = new SymbolParser("0.3sin");
+        Assert.assertFalse(symbolParser.parse());
+        Assert.assertEquals("Illegal phrase after the number", symbolParser.getError());
+    }
+
+    @org.junit.Test
+    public void parseIllegalSymbolAfterFunc() {
+        symbolParser = new SymbolParser("sin3pi");
+        Assert.assertFalse(symbolParser.parse());
+        Assert.assertEquals("Illegal phrase after the function", symbolParser.getError());
     }
 
     @org.junit.Test
