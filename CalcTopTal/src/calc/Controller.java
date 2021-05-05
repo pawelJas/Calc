@@ -12,7 +12,7 @@ public class Controller {
 
     public void evaluate(ActionEvent actionEvent) {
         Evaluator evaluator = new Evaluator(inputText.getText());
-        resultLabel.setText(evaluator.eval());
+        resultLabel.setText(evaluator.evalRpn());
     }
 }
 

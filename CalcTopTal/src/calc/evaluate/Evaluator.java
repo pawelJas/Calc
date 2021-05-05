@@ -9,7 +9,7 @@ public class Evaluator {
         this.input = input;
     }
 
-    public String eval() {
+    public String evalRpn() {
         RpnParser rpnParser = new RpnParser(input);
         boolean rpnParsingStatus = rpnParser.parse();
         if(rpnParsingStatus) {

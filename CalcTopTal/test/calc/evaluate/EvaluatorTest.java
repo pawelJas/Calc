@@ -16,68 +16,68 @@ public class EvaluatorTest {
     @Test
     public void evalSimple() {
         evaluator = new Evaluator("2");
-        Assert.assertEquals("2.0", evaluator.eval());
+        Assert.assertEquals("2.0", evaluator.evalRpn());
     }
 
     @Test
     public void evalUnknownSymbolError() {
         evaluator = new Evaluator("^^");
-        Assert.assertEquals("Parsing Error: Unknown object in input", evaluator.eval());
+        Assert.assertEquals("Parsing Error: Unknown object in input", evaluator.evalRpn());
     }
 
     @Test
     public void evalUnknownKeywordError() {
         evaluator = new Evaluator("2 + LAMA");
-        Assert.assertEquals("Parsing Error: Invalid keyword", evaluator.eval());
+        Assert.assertEquals("Parsing Error: Invalid keyword", evaluator.evalRpn());
     }
 
     @Test
     public void evalInvalidNumberError() {
         evaluator = new Evaluator("2 + 55.4.3");
-        Assert.assertEquals("Parsing Error: Invalid number", evaluator.eval());
+        Assert.assertEquals("Parsing Error: Invalid number", evaluator.evalRpn());
     }
 
     @Test
     public void evalDivByZero() {
         evaluator = new Evaluator("2 0 /");
-        Assert.assertEquals("Expression evaluation error: DIVISION_BY_ZERO", evaluator.eval());
+        Assert.assertEquals("Expression evaluation error: DIVISION_BY_ZERO", evaluator.evalRpn());
     }
 
     @Test
     public void evalLogZero() {
         evaluator = new Evaluator("2 0 1 - / ln");
-        Assert.assertEquals("Expression evaluation error: INVALID_ALGORITHM", evaluator.eval());
+        Assert.assertEquals("Expression evaluation error: INVALID_ALGORITHM", evaluator.evalRpn());
     }
 
     @Test
     public void evalSinCos() {
         evaluator = new Evaluator("pi sin pi cos +");
-        Assert.assertEquals(-1d, Double.parseDouble(evaluator.eval()), EPSILON);
+        Assert.assertEquals(-1d, Double.parseDouble(evaluator.evalRpn()), EPSILON);
         evaluator = new Evaluator("cos0 cospi -");
-        Assert.assertEquals(2d, Double.parseDouble(evaluator.eval()), EPSILON);
+        Assert.assertEquals(2d, Double.parseDouble(evaluator.evalRpn()), EPSILON);
     }
 
     @Test
     public void evalTanCtan() {
         evaluator = new Evaluator("5 tan ctan5 *");
-        Assert.assertEquals(1d, Double.parseDouble(evaluator.eval()), EPSILON);
+        Assert.assertEquals(1d, Double.parseDouble(evaluator.evalRpn()), EPSILON);
         evaluator = new Evaluator("tan5 5 ctan *");
-        Assert.assertEquals(1d, Double.parseDouble(evaluator.eval()), EPSILON);
+        Assert.assertEquals(1d, Double.parseDouble(evaluator.evalRpn()), EPSILON);
     }
 
     @Test
     public void evalLog() {
         evaluator = new Evaluator("1000 log e ln e e /++");
-        Assert.assertEquals(5d, Double.parseDouble(evaluator.eval()), EPSILON);
+        Assert.assertEquals(5d, Double.parseDouble(evaluator.evalRpn()), EPSILON);
         evaluator = new Evaluator("8 log2 lne +");
-        Assert.assertEquals(4d, Double.parseDouble(evaluator.eval()), EPSILON);
+        Assert.assertEquals(4d, Double.parseDouble(evaluator.evalRpn()), EPSILON);
     }
 
     @Test
     public void evalVariable() {
         evaluator = new Evaluator("2 x * 5 + 3x =");
-        Assert.assertEquals("x = 5.0", evaluator.eval());
+        Assert.assertEquals("x = 5.0", evaluator.evalRpn());
         evaluator = new Evaluator("2 x * 10 + 5 =");
-        Assert.assertEquals("x = -2.5", evaluator.eval());
+        Assert.assertEquals("x = -2.5", evaluator.evalRpn());
     }
 }
