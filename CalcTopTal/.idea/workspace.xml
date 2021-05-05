@@ -4,14 +4,8 @@
     <list default="true" id="4b4b4688-ca60-4ad2-b6c4-c6b2512724a1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/calc/evaluate/parser/RpnParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calc/evaluate/parser/RpnParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/calc/evaluate/parser/SymbolParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calc/evaluate/parser/SymbolParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/calc/evaluate/parser/expression/ArithmeticExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calc/evaluate/parser/expression/ArithmeticExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/calc/evaluate/parser/symbol/Symbol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calc/evaluate/parser/symbol/Symbol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/calc/evaluate/parser/symbol/SymbolType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calc/evaluate/parser/symbol/SymbolType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/calc/evaluate/EvaluatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/calc/evaluate/EvaluatorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/calc/evaluate/parser/RpnParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/calc/evaluate/parser/RpnParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/calc/evaluate/parser/SymbolParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/calc/evaluate/parser/SymbolParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/calc/evaluate/parser/expression/ArithmeticExpressionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/calc/evaluate/parser/expression/ArithmeticExpressionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +60,7 @@
       <recent name="calc.evaluate" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in CalcTopTal">
+  <component name="RunManager" selected="JUnit.EvaluatorTest.evalSinCos">
     <configuration name="All in CalcTopTal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CalcTopTal" />
       <option name="PACKAGE_NAME" value="" />
@@ -75,39 +69,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArithmeticExpressionTest.evalQuickMulti" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CalcTopTal" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="calc.evaluate.parser.expression.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="calc.evaluate.parser.expression" />
-      <option name="MAIN_CLASS_NAME" value="calc.evaluate.parser.expression.ArithmeticExpressionTest" />
-      <option name="METHOD_NAME" value="evalQuickMulti" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ArithmeticExpressionTest.evalQuickMultiVariable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CalcTopTal" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="calc.evaluate.parser.expression.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="calc.evaluate.parser.expression" />
-      <option name="MAIN_CLASS_NAME" value="calc.evaluate.parser.expression.ArithmeticExpressionTest" />
-      <option name="METHOD_NAME" value="evalQuickMultiVariable" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EvaluatorTest.evalVariable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EvaluatorTest.evalLog" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CalcTopTal" />
       <extension name="coverage">
         <pattern>
@@ -117,13 +79,45 @@
       </extension>
       <option name="PACKAGE_NAME" value="calc.evaluate" />
       <option name="MAIN_CLASS_NAME" value="calc.evaluate.EvaluatorTest" />
-      <option name="METHOD_NAME" value="evalVariable" />
+      <option name="METHOD_NAME" value="evalLog" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RpnParserTest.parseEquation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EvaluatorTest.evalSinCos" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalcTopTal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="calc.evaluate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="calc.evaluate" />
+      <option name="MAIN_CLASS_NAME" value="calc.evaluate.EvaluatorTest" />
+      <option name="METHOD_NAME" value="evalSinCos" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EvaluatorTest.evalTanCtan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CalcTopTal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="calc.evaluate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="calc.evaluate" />
+      <option name="MAIN_CLASS_NAME" value="calc.evaluate.EvaluatorTest" />
+      <option name="METHOD_NAME" value="evalTanCtan" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RpnParserTest.parseLogWithParam" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CalcTopTal" />
       <extension name="coverage">
         <pattern>
@@ -133,7 +127,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="calc.evaluate.parser" />
       <option name="MAIN_CLASS_NAME" value="calc.evaluate.parser.RpnParserTest" />
-      <option name="METHOD_NAME" value="parseEquation" />
+      <option name="METHOD_NAME" value="parseLogWithParam" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -141,11 +135,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EvaluatorTest.evalSinCos" />
+        <item itemvalue="JUnit.EvaluatorTest.evalTanCtan" />
         <item itemvalue="JUnit.All in CalcTopTal" />
-        <item itemvalue="JUnit.RpnParserTest.parseEquation" />
-        <item itemvalue="JUnit.EvaluatorTest.evalVariable" />
-        <item itemvalue="JUnit.ArithmeticExpressionTest.evalQuickMultiVariable" />
-        <item itemvalue="JUnit.ArithmeticExpressionTest.evalQuickMulti" />
+        <item itemvalue="JUnit.RpnParserTest.parseLogWithParam" />
+        <item itemvalue="JUnit.EvaluatorTest.evalLog" />
       </list>
     </recent_temporary>
   </component>
@@ -180,22 +174,22 @@
       <screen x="401" y="-1055" width="1920" height="1055" />
     </state>
     <state x="1133" y="-706" width="506" height="319" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620046876924" />
-    <state width="1878" height="217" key="GridCell.Tab.0.bottom" timestamp="1620239055915">
+    <state width="1878" height="217" key="GridCell.Tab.0.bottom" timestamp="1620243610183">
       <screen x="401" y="-1055" width="1920" height="1055" />
     </state>
-    <state width="1878" height="217" key="GridCell.Tab.0.bottom/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620239055915" />
-    <state width="1878" height="217" key="GridCell.Tab.0.center" timestamp="1620239055903">
+    <state width="1878" height="217" key="GridCell.Tab.0.bottom/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620243610183" />
+    <state width="1878" height="217" key="GridCell.Tab.0.center" timestamp="1620243610170">
       <screen x="401" y="-1055" width="1920" height="1055" />
     </state>
-    <state width="1878" height="217" key="GridCell.Tab.0.center/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620239055903" />
-    <state width="1878" height="217" key="GridCell.Tab.0.left" timestamp="1620239055897">
+    <state width="1878" height="217" key="GridCell.Tab.0.center/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620243610170" />
+    <state width="1878" height="217" key="GridCell.Tab.0.left" timestamp="1620243610165">
       <screen x="401" y="-1055" width="1920" height="1055" />
     </state>
-    <state width="1878" height="217" key="GridCell.Tab.0.left/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620239055897" />
-    <state width="1878" height="217" key="GridCell.Tab.0.right" timestamp="1620239055911">
+    <state width="1878" height="217" key="GridCell.Tab.0.left/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620243610165" />
+    <state width="1878" height="217" key="GridCell.Tab.0.right" timestamp="1620243610178">
       <screen x="401" y="-1055" width="1920" height="1055" />
     </state>
-    <state width="1878" height="217" key="GridCell.Tab.0.right/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620239055911" />
+    <state width="1878" height="217" key="GridCell.Tab.0.right/401.-1055.1920.1055/0.25.1440.793@401.-1055.1920.1055" timestamp="1620243610178" />
     <state width="1878" height="345" key="GridCell.Tab.1.bottom" timestamp="1620239021301">
       <screen x="401" y="-1055" width="1920" height="1055" />
     </state>
