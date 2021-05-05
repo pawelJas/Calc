@@ -138,7 +138,6 @@ public class SymbolParser {
 
     Symbol addFunction(String funcName, CharacterIterator it) {
         Symbol secondSymbol = null;
-        String funcSymbolStr = funcName;
         if(it.current() != CharacterIterator.DONE && Character.isDigit(it.current())) {
             secondSymbol = getNumericSymbol(it);
             if(secondSymbol == null) {
@@ -160,14 +159,24 @@ public class SymbolParser {
             }
         }
         if(secondSymbol != null) {
-            funcSymbolStr = funcName + " " + secondSymbol.getVal();
+            if(trigonometricOperations.contains(funcName)) {
+                return new Symbol(SymbolType.TRIG_WITH_PARAM, funcName + " " + secondSymbol.getVal());
+            }
+            else if(funcName.equals("ln")){
+                return new Symbol(SymbolType.LN_WITH_PARAM, funcName + " " + secondSymbol.getVal());
+            }
+            else if(funcName.equals("log") && it.current() != CharacterIterator.DONE && it.current() == '('){
+                return new Symbol(SymbolType.LOG_WITH_BASE, funcName + " " + secondSymbol.getVal());
+            }
+            else  {
+                return new Symbol(SymbolType.LOG_WITH_PARAM, funcName + " " + secondSymbol.getVal());
+            }
         }
-        System.out.println(funcSymbolStr);
         if(trigonometricOperations.contains(funcName)) {
-            return new Symbol(SymbolType.TRIG, funcSymbolStr);
+            return new Symbol(SymbolType.TRIG, funcName);
         }
         else {
-            return new Symbol(SymbolType.LOG, funcSymbolStr);
+            return new Symbol(SymbolType.LOG, funcName);
         }
     }
 

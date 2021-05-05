@@ -9,6 +9,12 @@ public class TrigExpression extends Expression   {
         this.param = param;
     }
 
+    public TrigExpression(String operationAndParam) {
+        String[] split = operationAndParam.split(" ");
+        this.operation = split[0];
+        this.param = new NumericExpression(split[1]);
+    }
+
     @Override
     void eval() {
         System.out.println("Trigonometric evaluation of " + operation);

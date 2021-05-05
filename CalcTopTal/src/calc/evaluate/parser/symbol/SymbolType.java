@@ -6,6 +6,10 @@ public enum SymbolType {
     VARIABLE,
     CONST,
     TRIG,
+    TRIG_WITH_PARAM,
     LOG,
+    LOG_WITH_PARAM,
+    LN_WITH_PARAM,
+    LOG_WITH_BASE,
     QUICK_MULTIPLICATION
 }

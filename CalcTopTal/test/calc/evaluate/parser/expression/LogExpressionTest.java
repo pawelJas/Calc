@@ -52,8 +52,7 @@ public class LogExpressionTest {
         logExpression = new LogExpression("ln", param);
         Assert.assertEquals(ExpressionError.NO_ERROR, logExpression.getErrorCode());
         Assert.assertEquals(4.81218435, logExpression.getValue(), EPSILON);
-        when(param.getValue()).thenReturn(Math.E);
-        logExpression = new LogExpression("ln", param);
+        logExpression = new LogExpression("ln e");
         Assert.assertEquals(1, logExpression.getValue(), EPSILON);
     }
 
@@ -61,15 +60,17 @@ public class LogExpressionTest {
     public void evalLog10() {
         logExpression = new LogExpression("log", param);
         Assert.assertEquals(2.08990511, logExpression.getValue(), EPSILON);
+        logExpression = new LogExpression("log 123");
+        Assert.assertEquals(2.08990511, logExpression.getValue(), EPSILON);
         when(param.getValue()).thenReturn(10d);
         logExpression = new LogExpression("log", param);
         Assert.assertEquals(1, logExpression.getValue(), EPSILON);
         logExpression = new LogExpression("log", param, 10);
         Assert.assertEquals(1, logExpression.getValue(), EPSILON);
         when(param.getValue()).thenReturn(100d);
-        logExpression = new LogExpression("log", param);
+        logExpression = new LogExpression("log 100");
         Assert.assertEquals(2, logExpression.getValue(), EPSILON);
-        logExpression = new LogExpression("log", param, 10);
+        logExpression = new LogExpression("log 10", param, true);
         Assert.assertEquals(2, logExpression.getValue(), EPSILON);
     }
 
@@ -78,10 +79,10 @@ public class LogExpressionTest {
         logExpression = new LogExpression("log", param, 5);
         Assert.assertEquals(2.98997825, logExpression.getValue(), EPSILON);
         when(param.getValue()).thenReturn(256d);
-        logExpression = new LogExpression("log", param,4);
+        logExpression = new LogExpression("log 4", param,true);
         Assert.assertEquals(4, logExpression.getValue(), EPSILON);
         when(param.getValue()).thenReturn(121d);
-        logExpression = new LogExpression("log", param,11);
+        logExpression = new LogExpression("log 11", param,true);
         Assert.assertEquals(2, logExpression.getValue(), EPSILON);
     }
 }

@@ -40,12 +40,18 @@ public class TrigExpressionTest {
     public void evalSin() {
         trigExpression = new TrigExpression("sin", param);
         Assert.assertEquals(0.0, trigExpression.getValue(), EPSILON);
+        trigExpression = new TrigExpression("sin 0.0");
+        Assert.assertEquals(0.0, trigExpression.getValue(), EPSILON);
+        trigExpression = new TrigExpression("sin 1.57"); // ~PI/2
+        Assert.assertEquals(1.0, trigExpression.getValue(), EPSILON);
     }
 
     @Test
     public void evalCos() {
         trigExpression = new TrigExpression("cos", param);
         Assert.assertEquals(-1.0, trigExpression.getValue(), EPSILON);
+        trigExpression = new TrigExpression("cos 0.0");
+        Assert.assertEquals(1.0, trigExpression.getValue(), EPSILON);
     }
 
     @Test

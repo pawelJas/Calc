@@ -16,7 +16,22 @@ public class LogExpression extends Expression   {
         this.operation = operation;
         this.base = base;
         this.param = param;
-        customBase = true;
+        this.customBase = true;
+    }
+
+    public LogExpression(String operationAndParam) {
+        String[] split = operationAndParam.split(" ");
+        this.operation = split[0];
+        this.param = new NumericExpression(split[1]);
+        this.base = 10d;
+    }
+
+    public LogExpression(String operationAndBase, Expression param, boolean customBase) {
+        String[] split = operationAndBase.split(" ");
+        this.operation = split[0];
+        this.param = param;
+        this.base = new NumericExpression(split[1]).getValue();
+        this.customBase = customBase;
     }
 
     @Override

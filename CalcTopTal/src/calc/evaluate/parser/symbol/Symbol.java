@@ -37,7 +37,23 @@ public class Symbol {
         return type == SymbolType.TRIG;
     }
 
+    public boolean isTrig_with_param() {
+        return type == SymbolType.TRIG_WITH_PARAM;
+    }
+
     public boolean isLog() {
         return type == SymbolType.LOG;
+    }
+
+    public boolean isLog_with_param() {
+        return type == SymbolType.LOG_WITH_PARAM;
+    }
+
+    public boolean isLn_with_param() {
+        return type == SymbolType.LN_WITH_PARAM;
+    }
+
+    public boolean isLog_with_base() {
+        return type == SymbolType.LOG_WITH_BASE;
     }
 }

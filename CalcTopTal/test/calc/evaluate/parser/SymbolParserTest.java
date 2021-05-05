@@ -113,7 +113,7 @@ public class SymbolParserTest {
         ArrayList<Symbol> symbols = symbolParser.getSymbols();
         Assert.assertEquals(expected.length, symbolParser.getSymbols().size());
         symbols.forEach(symbol ->
-                Assert.assertTrue(symbol.isTrig())
+                Assert.assertTrue(symbol.isTrig_with_param())
         );
         for (int i = 0; i < expected.length; i++) {
             Assert.assertEquals(expected[i], symbols.get(i).getVal());
@@ -142,9 +142,9 @@ public class SymbolParserTest {
         Assert.assertTrue(symbolParser.parse());
         ArrayList<Symbol> symbols = symbolParser.getSymbols();
         Assert.assertEquals(expected.length, symbolParser.getSymbols().size());
-        symbols.forEach(symbol ->
-                Assert.assertTrue(symbol.isLog())
-        );
+        Assert.assertTrue(symbols.get(0).isLog_with_param());
+        Assert.assertTrue(symbols.get(1).isLn_with_param());
+        Assert.assertTrue(symbols.get(2).isLn_with_param());
         for (int i = 0; i < expected.length; i++) {
             Assert.assertEquals(expected[i], symbols.get(i).getVal());
         }
