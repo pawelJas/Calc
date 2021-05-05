@@ -68,6 +68,15 @@ public class RpnParserTest {
     }
 
     @Test
+    public void parseNotSupportedSymbol() {
+        symbols.add(new Symbol(SymbolType.PARENTHESIS, "22"));
+        Assert.assertFalse(rpnParser.parse());
+        Assert.assertEquals(
+                "Expression building Error: Unknown symbol",
+                rpnParser.getError());
+    }
+
+    @Test
     public void parseSingleNumber() {
         symbols.add(new Symbol(SymbolType.NUMBER, "22"));
         Assert.assertTrue(rpnParser.parse());

@@ -86,6 +86,9 @@ public class RpnParser {
                     error = "Not enough parameters for arithmetic operation";
                     return false;
                 }
+            } else {
+                error = "Unknown symbol";
+                return false;
             }
         }
         try {
