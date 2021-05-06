@@ -40,11 +40,12 @@ public class InfixParser {
             error = "Expression building Error: " + rpnParser.getError();
             return false;
         }
+        rootExpression = rpnParser.getRootExpression();
         return true;
     }
 
     ArrayList<Symbol> evalParenthesisSymbol(Symbol symbol) {
-        SymbolParser symbolParser = new SymbolParser(symbol.getVal());
+        SymbolParser symbolParser = createSymbolParser(symbol.getVal());
         if(!symbolParser.parse()) {
             error = "Parsing Error: " + symbolParser.getError();
             System.out.println("Infix Error: Symbol parsing failed with error: " + symbolParser.getError());
@@ -62,10 +63,14 @@ public class InfixParser {
         ArrayList<Symbol> rpnList = new ArrayList<>();
         Stack<Symbol> arithmeticOperations = new Stack<>();
         boolean arithmeticExpected = false;
+
+        System.out.println("Symbols " + symbols.size());
+
         Iterator<Symbol> it = symbols.iterator();
         Symbol currentSymbol;
         while(it.hasNext()) {
             currentSymbol = it.next();
+            System.out.println("Current  " + currentSymbol.getVal() + " " + currentSymbol.isArithmetic());
             if(arithmeticExpected) {
                 if(currentSymbol.isArithmetic()) {
                     addArithmeticToRpnList(rpnList, arithmeticOperations, currentSymbol.getVal());
@@ -83,7 +88,14 @@ public class InfixParser {
                 arithmeticExpected = false;
             }
             else {
-                if(currentSymbol.evaluatesToValue()) {
+                if(currentSymbol.isParenthesis()) {
+                    ArrayList<Symbol> nestedList = evalParenthesisSymbol(currentSymbol);
+                    if(nestedList == null) {
+                        return null;
+                    }
+                    rpnList.addAll(nestedList);
+                }
+                else if(currentSymbol.evaluatesToValue()) {
                     rpnList.add(currentSymbol);
                 }
                 else if(currentSymbol.isTrig() || currentSymbol.isLog() || currentSymbol.isLog_with_base()) {
@@ -109,8 +121,15 @@ public class InfixParser {
                 arithmeticExpected = true;
             }
         }
+        while(!arithmeticOperations.empty()) {
+            rpnList.add(arithmeticOperations.pop());
+        }
         if(equals != null) {
             rpnList.add(equals);
+        }
+        System.out.println(rpnList.size());
+        for (Symbol temp : rpnList) {
+            System.out.println(temp.getVal());
         }
         return rpnList;
     }
@@ -128,5 +147,10 @@ public class InfixParser {
                rpnList.add(arithmeticOperations.pop());
            }
         }
+    }
+
+    SymbolParser createSymbolParser(String string) {
+        System.out.println("AAAA");
+        return new SymbolParser(string);
     }
 }

@@ -63,7 +63,7 @@ public class SymbolParserTest {
     @org.junit.Test
     public void parseConsts() {
         symbolParser = new SymbolParser(" piPieePi   e");
-        String[] expected = {"pi", "Pi", "e", "e", "Pi", "e"};
+        String[] expected = {"pi", "pi", "e", "e", "pi", "e"};
         Assert.assertTrue(symbolParser.parse());
         ArrayList<Symbol> symbols = symbolParser.getSymbols();
         Assert.assertEquals(expected.length, symbolParser.getSymbols().size());
@@ -78,7 +78,7 @@ public class SymbolParserTest {
     @org.junit.Test
     public void parseQuickMul() {
         symbolParser = new SymbolParser("3x 4.0Pi");
-        String[] expected = {"3 x", "4.0 Pi"};
+        String[] expected = {"3 x", "4.0 pi"};
         Assert.assertTrue(symbolParser.parse());
         ArrayList<Symbol> symbols = symbolParser.getSymbols();
         Assert.assertEquals(expected.length, symbolParser.getSymbols().size());
@@ -108,7 +108,7 @@ public class SymbolParserTest {
     @org.junit.Test
     public void parseTrigWithParam() {
         symbolParser = new SymbolParser("sinPi cos3");
-        String[] expected = {"sin Pi", "cos 3"};
+        String[] expected = {"sin pi", "cos 3"};
         Assert.assertTrue(symbolParser.parse());
         ArrayList<Symbol> symbols = symbolParser.getSymbols();
         Assert.assertEquals(expected.length, symbolParser.getSymbols().size());

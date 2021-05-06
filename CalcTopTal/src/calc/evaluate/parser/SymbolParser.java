@@ -28,7 +28,7 @@ public class SymbolParser {
     }};
 
     public SymbolParser(String input) {
-        this.input = input.strip();
+        this.input = input.toLowerCase().strip();
         symbols = new ArrayList<>();
     }
 

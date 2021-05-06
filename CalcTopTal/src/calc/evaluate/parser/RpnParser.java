@@ -11,6 +11,7 @@ public class RpnParser {
     SymbolParser symbolParser;
     String error;
     ArrayList<Symbol> symbols = null;
+    boolean isInfixMode = false;
 
     public RpnParser(String input) {
         this.input = input;
@@ -18,6 +19,7 @@ public class RpnParser {
 
     public RpnParser(ArrayList<Symbol>  symbols) {
         this.symbols = symbols;
+        isInfixMode = true;
     }
 
     public boolean parse() {
@@ -75,6 +77,9 @@ public class RpnParser {
                 expressions.push(new TrigExpression(currentSymbol.getVal()));
             }
             else if (currentSymbol.isLn_with_param()) {
+                expressions.push(new LogExpression(currentSymbol.getVal()));
+            }
+            else if (currentSymbol.isLog_with_param() && isInfixMode) {
                 expressions.push(new LogExpression(currentSymbol.getVal()));
             }
             else if (currentSymbol.isTrig() || currentSymbol.isLog() || currentSymbol.isLog_with_base() || currentSymbol.isLog_with_param()) {
