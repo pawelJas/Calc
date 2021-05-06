@@ -10,9 +10,14 @@ public class RpnParser {
     Expression rootExpression = null;
     SymbolParser symbolParser;
     String error;
+    ArrayList<Symbol> symbols = null;
 
     public RpnParser(String input) {
         this.input = input;
+    }
+
+    public RpnParser(ArrayList<Symbol>  symbols) {
+        this.symbols = symbols;
     }
 
     public boolean parse() {
@@ -23,7 +28,7 @@ public class RpnParser {
             System.out.println("Rpn Error: Symbol parsing failed with error: " + symbolParser.getError());
             return false;
         }
-
+        symbols = symbolParser.getSymbols();
         if(!buildExpression()) {
             System.out.println("Rpn Error: Expression building failed with error: " + error);
             error = "Expression building Error: " + error;
@@ -40,12 +45,12 @@ public class RpnParser {
         return error;
     }
 
-    boolean buildExpression() {
-        if(symbolParser.getSymbols().isEmpty()) {
+    public boolean buildExpression() {
+        if(symbols.isEmpty()) {
             error = "Empty expression list";
             return false;
         }
-        Iterator<Symbol> it = symbolParser.getSymbols().iterator();
+        Iterator<Symbol> it = symbols.iterator();
         Symbol currentSymbol;
         Stack<Expression> expressions = new Stack<>();
         while(it.hasNext()) {

@@ -1,5 +1,6 @@
 package calc.evaluate;
 
+import calc.evaluate.parser.InfixParser;
 import calc.evaluate.parser.RpnParser;
 
 public class Evaluator {
@@ -16,5 +17,14 @@ public class Evaluator {
             return rpnParser.getRootExpression().toString();
         }
         return rpnParser.getError();
+    }
+
+    public String evalInfix() {
+        InfixParser infixParser = new InfixParser(input);
+        boolean infixParserStatus = infixParser.parse();
+        if(infixParserStatus) {
+            return infixParser.getRootExpression().toString();
+        }
+        return infixParser.getError();
     }
 }

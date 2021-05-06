@@ -60,4 +60,9 @@ public class Symbol {
     public boolean isParenthesis() {
         return type == SymbolType.PARENTHESIS;
     }
+
+    public boolean evaluatesToValue() {
+        return isNumeric() || isVariable() || isConst() || isQuickMul() || isTrig_with_param() || isLn_with_param()
+                || isLog_with_param() || isParenthesis();
+    }
 }
