@@ -1,5 +1,7 @@
 package calc.evaluate.parser.expression;
 
+import static java.lang.Math.abs;
+
 public abstract class Expression {
     String operation = "";
     double val;
@@ -7,6 +9,7 @@ public abstract class Expression {
     char variableName = 0;
     boolean wasEvaluated = false;
     ExpressionError errorCode = ExpressionError.NO_ERROR;
+    private final static double EPSILON = 0.000000001;
 
     public ExpressionError getErrorCode() {
         evalOnce();
@@ -37,6 +40,9 @@ public abstract class Expression {
     public String toString() {
         evalOnce();
         if(errorCode == ExpressionError.NO_ERROR) {
+            if(abs(val) < EPSILON) {
+                val = 0d;
+            }
             if(operation.equals("=")) {
                 return variableName + " = " + Double.toString(val);
             }

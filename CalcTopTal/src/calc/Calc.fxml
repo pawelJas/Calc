@@ -5,8 +5,8 @@
 
 <GridPane alignment="center" hgap="10" prefHeight="198.0" prefWidth="504.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc.Controller">
     <TextField fx:id="inputText" prefHeight="27.0" prefWidth="252.0" text="2 + 2" GridPane.columnIndex="1" GridPane.columnSpan="3" />
-    <Button alignment="CENTER" onAction="#evaluate" text="Evaluate RPN" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1" />
-    <Button alignment="CENTER" onAction="#evaluate" text="Evaluate infix" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.rowIndex="1" />
+    <Button alignment="CENTER" onAction="#evaluateRpn" text="Evaluate RPN" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1" />
+    <Button alignment="CENTER" onAction="#evaluateInfix" text="Evaluate infix" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.rowIndex="1" />
     <Label fx:id="resultTitle" alignment="TOP_CENTER" text="Result:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
     <Label fx:id="resultLabel" alignment="TOP_CENTER" text="..." GridPane.columnIndex="2" GridPane.rowIndex="2" />
    <columnConstraints>

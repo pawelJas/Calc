@@ -10,9 +10,14 @@ public class Controller {
     public Label resultLabel;
     public Label resultTitle;
 
-    public void evaluate(ActionEvent actionEvent) {
+    public void evaluateRpn(ActionEvent actionEvent) {
         Evaluator evaluator = new Evaluator(inputText.getText());
         resultLabel.setText(evaluator.evalRpn());
+    }
+
+    public void evaluateInfix(ActionEvent actionEvent) {
+        Evaluator evaluator = new Evaluator(inputText.getText());
+        resultLabel.setText(evaluator.evalInfix());
     }
 }
 

@@ -16,8 +16,8 @@ public class EvaluatorTest {
     @Test
     public void evalSimple() {
         evaluator = new Evaluator("2");
-        Assert.assertEquals("2.0", evaluator.evalRpn());
-        Assert.assertEquals("2.0", evaluator.evalInfix());
+        Assert.assertEquals("2", evaluator.evalRpn());
+        Assert.assertEquals("2", evaluator.evalInfix());
     }
 
     @Test
@@ -96,14 +96,36 @@ public class EvaluatorTest {
     @Test
     public void evalVariable() {
         evaluator = new Evaluator("2 x * 5 + 3x =");
-        Assert.assertEquals("x = 5.0", evaluator.evalRpn());
+        Assert.assertEquals("x = 5", evaluator.evalRpn());
         evaluator = new Evaluator("2 * x + 5 = 3x");
-        Assert.assertEquals("x = 5.0", evaluator.evalInfix());
+        Assert.assertEquals("x = 5", evaluator.evalInfix());
         evaluator = new Evaluator("2 x * 10 + 5 =");
         Assert.assertEquals("x = -2.5", evaluator.evalRpn());
         evaluator = new Evaluator("2 * x + 10 = 5");
         Assert.assertEquals("x = -2.5", evaluator.evalInfix());
     }
 
-
+    @Test
+    public void exampleTests() {
+        evaluator = new Evaluator("(3+(4-1))*5");
+        Assert.assertEquals("30", evaluator.evalInfix());
+        evaluator = new Evaluator("2 * x + 0.5 = 1");
+        Assert.assertEquals("x = 0.25", evaluator.evalInfix());
+        evaluator = new Evaluator("2 * x + 1 = 2*(1-x)");
+        Assert.assertEquals("x = 0.25", evaluator.evalInfix());
+        evaluator = new Evaluator("Log(10)");
+        Assert.assertEquals("1", evaluator.evalInfix());
+        evaluator = new Evaluator("Log10");
+        Assert.assertEquals("1", evaluator.evalInfix());
+        evaluator = new Evaluator("Log100(10)");
+        Assert.assertEquals("0.5", evaluator.evalInfix());
+        evaluator = new Evaluator("sin(pi)");
+        Assert.assertEquals("0", evaluator.evalInfix());
+        evaluator = new Evaluator("sinpi");
+        Assert.assertEquals("0", evaluator.evalInfix());
+        evaluator = new Evaluator("sin(1.5pi)");
+        Assert.assertEquals("-1", evaluator.evalInfix());
+        evaluator = new Evaluator("sin(1.5*pi)");
+        Assert.assertEquals("-1", evaluator.evalInfix());
+    }
 }
