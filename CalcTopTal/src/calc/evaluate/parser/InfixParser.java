@@ -64,13 +64,10 @@ public class InfixParser {
         Stack<Symbol> arithmeticOperations = new Stack<>();
         boolean arithmeticExpected = false;
 
-        System.out.println("Symbols " + symbols.size());
-
         Iterator<Symbol> it = symbols.iterator();
         Symbol currentSymbol;
         while(it.hasNext()) {
             currentSymbol = it.next();
-            System.out.println("Current  " + currentSymbol.getVal() + " " + currentSymbol.isArithmetic());
             if(arithmeticExpected) {
                 if(currentSymbol.isArithmetic()) {
                     addArithmeticToRpnList(rpnList, arithmeticOperations, currentSymbol.getVal());
@@ -127,10 +124,7 @@ public class InfixParser {
         if(equals != null) {
             rpnList.add(equals);
         }
-        System.out.println(rpnList.size());
-        for (Symbol temp : rpnList) {
-            System.out.println(temp.getVal());
-        }
+
         return rpnList;
     }
 
@@ -150,7 +144,6 @@ public class InfixParser {
     }
 
     SymbolParser createSymbolParser(String string) {
-        System.out.println("AAAA");
         return new SymbolParser(string);
     }
 }
